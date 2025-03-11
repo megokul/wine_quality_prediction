@@ -2,8 +2,17 @@ import os
 from pathlib import Path
 import logging
 
+if not os.path.exists('logs'):
+    os.mkdir('logs')
 
-logging.basicConfig(format='[%(asctime)s] - %(levelname)s - %(message)s')
+file_handler = logging.FileHandler('logs/directorygen_logs.log')
+stream_handler = logging.StreamHandler()
+
+logging.basicConfig(
+    format='[%(asctime)s] - %(levelname)s - %(message)s',
+    handlers=[file_handler, stream_handler]
+    )
+
 logger = logging.getLogger('directory_builder')
 logger.setLevel(logging.INFO)
 
@@ -38,12 +47,12 @@ for filepath in list_of_files:
 
     if filedir!='':
         os.makedirs(filedir, exist_ok=True)
-        logger.info(f'Creating the directory {filedir} for file : {filename}')
+        logger.info(f"Creating the directory '{filedir}' for file : '{filename}'")
     
-    if (not os.path.exists(filename)) or (os.path.getsize(filename)==0):
-        with open(filename, 'w'):
+    if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
+        with open(filepath, 'w'):
             pass
-            logger.info(f'Creating empty file: {filename}')
+            logger.info(f"Creating empty file: '{filepath}'")
     else:
-        logger.info(f'File : {filename} already exists')
+        logger.info(f"'{filepath}' already exists")
         
