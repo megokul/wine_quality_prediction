@@ -2,70 +2,125 @@ import os
 from pathlib import Path
 import logging
 
-# Define the directory where logs will be stored
+# ==============================
+# 🔹 LOGGING SETUP
+# ==============================
+
+# ✅ Define the directory where logs will be stored
 log_dir = "logs"
+
+# ✅ Define the log file name and full path
 log_filepath = os.path.join(log_dir, 'directorygen_logs.log')
 
-# Ensure the logs directory exists before writing logs
-os.makedirs(log_dir, exist_ok=True)
+# ✅ Define the format for log messages
+log_format = '[%(asctime)s] - %(levelname)s - %(message)s'
 
-# Create a FileHandler to save logs to a file
-file_handler = logging.FileHandler(log_filepath)
+def setup_logging():
+    """
+    Sets up logging configuration:
+    - Creates the `logs/` directory if it doesn't exist.
+    - Configures log messages to be written to both a file and the console.
+    - Uses append mode (`"a"`) to ensure logs persist across runs.
+    - Logger name: `directory_builder` (used for all logging in this script).
+    
+    Returns:
+        logging.Logger: Configured logger instance.
+    """
 
-# Create a StreamHandler to print logs to the console
-stream_handler = logging.StreamHandler()
+    # ✅ Ensure the log directory exists
+    os.makedirs(log_dir, exist_ok=True)
 
-# Configure logging with both file and console handlers
-logging.basicConfig(
-    format='[%(asctime)s] - %(levelname)s - %(message)s',
-    handlers=[file_handler, stream_handler]
-)
+    # ✅ Configure logging
+    logging.basicConfig(
+        format=log_format,  # Set log message format
+        level=logging.INFO,  # Set log level to INFO (ignores DEBUG messages)
+        handlers=[
+            logging.FileHandler(log_filepath, mode="a"),  # Save logs to a file (append mode)
+            logging.StreamHandler()  # Display logs in the console
+        ]
+    )
 
-# Create a logger instance with a specific name
-logger = logging.getLogger('directory_builder')
-logger.setLevel(logging.INFO)  # Set log level to INFO (ignores DEBUG messages)
+    return logging.getLogger('directory_builder')  # ✅ Create and return a logger
 
-# Define the project name
+# ✅ Initialize the logger
+logger = setup_logging()
+
+
+# ==============================
+# 🔹 PROJECT SETUP
+# ==============================
+
+# ✅ Define the project name (used in file paths)
 project_name = 'pilotproject'
 
-# List of files and directories that should be created
+# ✅ List of files and directories to be created in the project structure
 list_of_files = [
-    ".github/workflows/.gitkeep",
-    f"src/{project_name}/__init__.py",
-    f"src/{project_name}/components/__init__.py",
-    f"src/{project_name}/utils/__init__.py",
-    f"src/{project_name}/utils/common.py",
-    f"src/{project_name}/config/__init__.py",
-    f"src/{project_name}/config/configuration.py",
-    f"src/{project_name}/pipeline/__init__.py",
-    f"src/{project_name}/entity/__init__.py",
-    f"src/{project_name}/entity/config_entity.py",
-    f"src/{project_name}/constants/__init__.py",
-    "config/config.yaml",
-    "params.yaml",
-    "schema.yaml",
-    "main.py",
-    "Dockerfile",
-    "setup.py",
-    "research/research.ipynb",
-    "templates/index.html",
-    "app.py"
+    # 🔹 GitHub workflows (for CI/CD setup)
+    ".github/workflows/.gitkeep",  
+    
+    # 🔹 Source Code Structure
+    f"src/{project_name}/__init__.py",  # Main package initializer
+    f"src/{project_name}/components/__init__.py",  # Components submodule
+    f"src/{project_name}/utils/__init__.py",  # Utilities submodule
+    f"src/{project_name}/utils/common.py",  # Common utility functions
+    f"src/{project_name}/config/__init__.py",  # Configuration submodule
+    f"src/{project_name}/config/configuration.py",  # Configuration handling script
+    f"src/{project_name}/pipeline/__init__.py",  # Pipeline processing module
+    f"src/{project_name}/entity/__init__.py",  # Entity-related module
+    f"src/{project_name}/entity/config_entity.py",  # Configuration entity class
+    f"src/{project_name}/constants/__init__.py",  # Constants module
+
+    # 🔹 Configuration and Parameter Files
+    "config/config.yaml",  # YAML file for configuration settings
+    "params.yaml",  # YAML file for parameter tuning
+    "schema.yaml",  # YAML file for data schema definition
+
+    # 🔹 Project Execution and Deployment
+    "main.py",  # Main entry point of the project
+    "Dockerfile",  # Dockerfile for containerization
+    "setup.py",  # Setup script for packaging
+
+    # 🔹 Research and Web Components
+    "research/research.ipynb",  # Jupyter notebook for exploratory research
+    "templates/index.html",  # HTML template file (for a web component)
+
+    # 🔹 Backend API
+    "app.py"  # Flask or FastAPI backend application script
 ]
 
-# Iterate over the list of files to create necessary directories and files
-for filepath in list_of_files:
-    filepath = Path(filepath)  # Convert string path to a Path object
-    filedir, filename = os.path.split(filepath)  # Split the path into directory and filename
 
-    # Ensure the directory exists before creating the file
-    if filedir != '':
-        os.makedirs(filedir, exist_ok=True)
-        logger.info(f"Creating the directory '{filedir}' for file : '{filename}'")
+# ==============================
+# 🔹 DIRECTORY & FILE CREATION
+# ==============================
+
+def create_file_structure(file_list):
+    """
+    Creates directories and files based on the given list.
     
-    # Check if the file does not exist or is empty, then create it
-    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
-        with open(filepath, 'w'):  # Create an empty file
-            pass
-        logger.info(f"Creating empty file: '{filepath}'")
-    else:
-        logger.info(f"'{filepath}' already exists")
+    - If a directory does not exist, it is created.
+    - If a file does not exist or is empty, it is created.
+    - Logs every operation to track what is being created.
+
+    Parameters:
+        file_list (list): List of file paths to be created.
+    """
+
+    for filepath in file_list:
+        filepath = Path(filepath)  # ✅ Convert string path to a `Path` object
+        filedir, filename = os.path.split(filepath)  # ✅ Extract directory and filename separately
+
+        # ✅ Ensure the parent directory exists before creating the file
+        if filedir:
+            os.makedirs(filedir, exist_ok=True)  # ✅ Create directory if it does not exist
+            logger.info(f"Creating the directory '{filedir}' for file: '{filename}'")
+
+        # ✅ Check if the file does not exist or is empty, then create it
+        if not filepath.exists() or filepath.stat().st_size == 0:
+            with open(filepath, 'w'):  # ✅ Create an empty file
+                pass  # No content is added, just initializing the file
+            logger.info(f"Creating empty file: '{filepath}'")  # ✅ Log file creation
+        else:
+            logger.info(f"'{filepath}' already exists")  # ✅ Log if the file already exists
+
+# ✅ Run the file creation function
+create_file_structure(list_of_files)
