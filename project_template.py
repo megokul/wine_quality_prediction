@@ -13,37 +13,51 @@ log_dir = "logs"
 log_filepath = os.path.join(log_dir, 'directorygen_logs.log')
 
 # ✅ Define the format for log messages
-log_format = '[%(asctime)s] - %(levelname)s - %(message)s'
+log_format = '[%(asctime)s] - %(levelname)s - %(module)s - %(message)s'
 
 def setup_logging():
     """
-    Sets up logging configuration:
+    Sets up a custom logger:
     - Creates the `logs/` directory if it doesn't exist.
     - Configures log messages to be written to both a file and the console.
-    - Uses append mode (`"a"`) to ensure logs persist across runs.
+    - Uses append mode (`"a"`) so logs persist across multiple runs.
+    - Ensures handlers are not added multiple times.
     - Logger name: `directory_builder` (used for all logging in this script).
     
     Returns:
-        logging.Logger: Configured logger instance.
+        logging.Logger: Custom logger instance.
     """
 
-    # ✅ Ensure the log directory exists
+    # ✅ Ensure the log directory exists before creating the log file
     os.makedirs(log_dir, exist_ok=True)
 
-    # ✅ Configure logging
-    logging.basicConfig(
-        format=log_format,  # Set log message format
-        level=logging.INFO,  # Set log level to INFO (ignores DEBUG messages)
-        handlers=[
-            logging.FileHandler(log_filepath, mode="a"),  # Save logs to a file (append mode)
-            logging.StreamHandler()  # Display logs in the console
-        ]
-    )
+    # ✅ Create a custom logger (separate from the root logger)
+    logger = logging.getLogger('directory_builder')
 
-    return logging.getLogger('directory_builder')  # ✅ Create and return a logger
+    # ✅ Set the logger level to DEBUG (captures all log levels)
+    logger.setLevel(logging.DEBUG)
+
+    # ✅ Prevent adding duplicate handlers
+    if not logger.hasHandlers():
+        formatter = logging.Formatter(log_format)  # ✅ Define the log message format
+
+        # ✅ Create a File Handler (logs INFO and above)
+        file_handler = logging.FileHandler(log_filepath, mode='a')  # Append mode ("a")
+        file_handler.setFormatter(formatter)  # Apply the log format
+
+        # ✅ Create a Stream Handler (logs DEBUG and above to console)
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(formatter)  # Apply the log format
+
+        # ✅ Add handlers to the logger
+        logger.addHandler(file_handler)
+        logger.addHandler(stream_handler)
+
+    return logger  # ✅ Return the configured logger
 
 # ✅ Initialize the logger
 logger = setup_logging()
+
 
 
 # ==============================
