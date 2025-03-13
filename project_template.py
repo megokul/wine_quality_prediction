@@ -74,8 +74,8 @@ list_of_files = [
     
     # 🔹 Source Code Structure
     f"src/{project_name}/__init__.py",  # Main package initializer
-    f"src/{project_name}/components/__init__.py",  # Components submodule
-    f"src/{project_name}/utils/__init__.py",  # Utilities submodule
+    f"src/{project_name}/components/__init__.py",  # Components submodule initializer
+    f"src/{project_name}/utils/__init__.py",  # Utilities submodule initializer
     f"src/{project_name}/utils/common.py",  # Common utility functions
     f"src/{project_name}/config/__init__.py",  # Configuration submodule
     f"src/{project_name}/config/configuration.py",  # Configuration handling script
@@ -93,6 +93,7 @@ list_of_files = [
     "main.py",  # Main entry point of the project
     "Dockerfile",  # Dockerfile for containerization
     "setup.py",  # Setup script for packaging
+    "requirements.txt",  # Requirements file for Python dependencies
 
     # 🔹 Research and Web Components
     "research/research.ipynb",  # Jupyter notebook for exploratory research
