@@ -27,7 +27,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     try:
         with open(path_to_yaml) as yaml_file:  # Open YAML file
             content = yaml.safe_load(yaml_file)  # Load content safely to prevent code execution
-            logger.info(f"yaml file: {path_to_yaml} loaded successfully")  # Log successful loading
+            logger.info(f"yaml file: '{path_to_yaml}' loaded successfully")  # Log successful loading
             return ConfigBox(content)  # Convert loaded data to Configbox object for easy access
     except BoxValueError:
         raise ValueError("yaml file is empty")  # Handle case where YAML content is empty
@@ -47,7 +47,7 @@ def create_directories(path_to_directories: list, verbose=True):
     for path in path_to_directories:
         os.makedirs(path, exist_ok=True)  # Create directories, ignoring if they already exist
         if verbose:
-            logger.info(f"created directory at: {path}")  # Log directory creation
+            logger.info(f"created directory at: '{path}'")  # Log directory creation
 
 
 @ensure_annotations
@@ -62,7 +62,7 @@ def save_json(path: Path, data: dict):
     with open(path, 'w') as file:  # Open file in write mode
         json.dump(data, file, indent=4)  # Write data as formatted JSON
 
-    logger.info(f"JSON file saved at: {path}")  # Log JSON file creation
+    logger.info(f"JSON file saved at: '{path}'")  # Log JSON file creation
 
 
 @ensure_annotations
@@ -79,7 +79,7 @@ def load_json(path: Path) -> ConfigBox:
     with open(path) as file:  # Open JSON file
         content = json.load(file)  # Load JSON content
 
-    logger.info(f"JSON file loaded successfully from: {path}")  # Log successful load
+    logger.info(f"JSON file loaded successfully from: '{path}'")  # Log successful load
     return ConfigBox(content)  # Convert loaded data to Configbox object
 
 
@@ -93,7 +93,7 @@ def save_bin(path: Path, data: Any):
         data (Any): Python object to serialize.
     """
     joblib.dump(value=data, filename=path)  # Serialize and save the Python object
-    logger.info(f"Binary file saved at: {path}")  # Log binary file creation
+    logger.info(f"Binary file saved at: '{path}'")  # Log binary file creation
 
 
 @ensure_annotations
@@ -108,5 +108,5 @@ def load_bin(path: Path) -> Any:
         Any: Python object loaded from the binary file.
     """
     data = joblib.load(path)  # Load Python object from binary file
-    logger.info(f"Binary file loaded from: {path}")  # Log successful load
+    logger.info(f"Binary file loaded from: '{path}'")  # Log successful load
     return data
