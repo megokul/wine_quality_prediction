@@ -1,2 +1,107 @@
 [2025-03-13 20:11:33,554] - INFO - main - This is a test message!
 [2025-03-13 21:23:16,717] - INFO - main - This is a test message!
+[2025-03-14 00:01:44,705] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:02:31,208] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:04:52,765] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:05:03,996] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:06:23,282] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:06:52,765] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:07:32,400] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:08:39,489] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:08:39,491] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:09:22,878] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:09:22,887] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:09:22,890] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 00:10:47,179] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:10:47,182] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:10:47,184] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 00:10:47,186] - INFO - common - created directory at: artifacts
+[2025-03-14 00:10:47,187] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 00:14:33,108] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:14:33,109] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:14:33,110] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 00:14:33,111] - INFO - common - created directory at: artifacts
+[2025-03-14 00:14:33,111] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 00:17:45,078] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:17:45,078] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:17:45,079] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 00:17:45,080] - INFO - common - created directory at: artifacts
+[2025-03-14 00:17:45,082] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 00:18:44,699] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:18:44,702] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:18:44,704] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 00:18:44,706] - INFO - common - created directory at: artifacts
+[2025-03-14 00:18:44,707] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 00:18:57,633] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 00:18:57,636] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 00:18:57,638] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 00:18:57,638] - INFO - common - created directory at: artifacts
+[2025-03-14 00:18:57,640] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:24:51,663] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:24:51,673] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:24:51,676] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:24:51,678] - INFO - common - created directory at: artifacts
+[2025-03-14 09:24:51,680] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:25:00,883] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:25:00,885] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:25:00,887] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:25:00,888] - INFO - common - created directory at: artifacts
+[2025-03-14 09:25:00,888] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:27:38,235] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:27:38,236] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:27:38,238] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:27:38,239] - INFO - common - created directory at: artifacts
+[2025-03-14 09:27:38,239] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:33:31,589] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:33:31,591] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:33:31,592] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:33:31,593] - INFO - common - created directory at: artifacts
+[2025-03-14 09:33:31,593] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:37:55,044] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:37:55,046] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:37:55,047] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:37:55,048] - INFO - common - created directory at: artifacts
+[2025-03-14 09:37:55,049] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:38:10,433] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:38:10,434] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:38:10,435] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:38:10,436] - INFO - common - created directory at: artifacts
+[2025-03-14 09:38:10,437] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:38:50,973] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:38:50,975] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:38:50,977] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:38:50,978] - INFO - common - created directory at: artifacts
+[2025-03-14 09:38:50,980] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:38:50,982] - INFO - 206361501 - File already exists
+[2025-03-14 09:39:10,146] - INFO - common - yaml file: config\config.yaml loaded successfully
+[2025-03-14 09:39:10,149] - INFO - common - yaml file: params.yaml loaded successfully
+[2025-03-14 09:39:10,151] - INFO - common - yaml file: schema.yaml loaded successfully
+[2025-03-14 09:39:10,152] - INFO - common - created directory at: artifacts
+[2025-03-14 09:39:10,154] - INFO - common - created directory at: artifacts/data_ingestion
+[2025-03-14 09:39:10,953] - INFO - 206361501 - artifacts/data_ingestion/data.zip download complete! with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 5E14:A6605:47445C:9E7200:67D3F93D
+Accept-Ranges: bytes
+Date: Fri, 14 Mar 2025 09:39:10 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980068-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1741945150.162753,VS0,VE147
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: a6f58951fef448e84523aa6c21821526b121b726
+Expires: Fri, 14 Mar 2025 09:44:10 GMT
+Source-Age: 0
+
+

@@ -4,13 +4,13 @@ from src.pilotproject import logger
 import json
 import joblib
 from ensure import ensure_annotations
-from box import Configbox
+from box import ConfigBox
 from pathlib import Path
 from typing import Any
 from box.exceptions import BoxValueError
 
 @ensure_annotations
-def read_yaml(path_to_yaml: Path) -> Configbox:
+def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """
     Reads a YAML file and returns its content as a Configbox object.
 
@@ -28,7 +28,7 @@ def read_yaml(path_to_yaml: Path) -> Configbox:
         with open(path_to_yaml) as yaml_file:  # Open YAML file
             content = yaml.safe_load(yaml_file)  # Load content safely to prevent code execution
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")  # Log successful loading
-            return Configbox(content)  # Convert loaded data to Configbox object for easy access
+            return ConfigBox(content)  # Convert loaded data to Configbox object for easy access
     except BoxValueError:
         raise ValueError("yaml file is empty")  # Handle case where YAML content is empty
     except Exception as e:
@@ -66,7 +66,7 @@ def save_json(path: Path, data: dict):
 
 
 @ensure_annotations
-def load_json(path: Path) -> Configbox:
+def load_json(path: Path) -> ConfigBox:
     """
     Loads a JSON file and returns its content as a Configbox object.
 
@@ -80,7 +80,7 @@ def load_json(path: Path) -> Configbox:
         content = json.load(file)  # Load JSON content
 
     logger.info(f"JSON file loaded successfully from: {path}")  # Log successful load
-    return Configbox(content)  # Convert loaded data to Configbox object
+    return ConfigBox(content)  # Convert loaded data to Configbox object
 
 
 @ensure_annotations
