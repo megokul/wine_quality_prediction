@@ -9,10 +9,23 @@ class DataTransformationPipeline:
         pass
 
     def initiate_data_transformation(self):
+        
         config=ConfigurationManager()
         data_transformation_config=config.get_data_transformation_config()
-        data_transformation=DataTransformation(data_transformation_config)
-        data_transformation.train_test_splitting()
+
+        STATUS_FILE = data_transformation_config.STATUS_FILE
+
+        logger.info(f"Checking valdation status...")
+        with open(STATUS_FILE, 'r') as file:
+            validation_status=file.read().split(" ")[-1]
+            
+            if validation_status=='True':
+                logger.info(f"Valdation status: '{validation_status}")
+                data_transformation=DataTransformation(data_transformation_config)
+                data_transformation.train_test_splitting()
+            else:
+                logger.info(f"Valdation status: '{validation_status}")
+                raise Exception("Data schema is not valid")
 
 if __name__=='__main__':
     try:
