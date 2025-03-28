@@ -1121,3 +1121,340 @@ x==========x
 [2025-03-28 13:47:19,046] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
 x==========x
 
+[2025-03-28 20:02:19,379] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 20:02:19,383] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:19,384] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:19,387] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:19,388] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:19,388] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 20:02:19,388] - INFO - data_ingestion - File already exists
+[2025-03-28 20:02:19,390] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:02:19,390] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 20:02:19,392] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:19,393] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:19,394] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:19,395] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:19,395] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 20:02:19,413] - INFO - data_validation - Performing data validation
+[2025-03-28 20:02:19,414] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 20:02:19,414] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:02:19,415] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 20:02:19,418] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:19,419] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:19,421] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:19,421] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:19,422] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 20:02:19,422] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-03-28 20:02:19,423] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-03-28 20:02:19,428] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 20:02:19,439] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 20:02:19,439] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 20:02:19,442] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 20:02:19,442] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 20:02:19,442] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:02:19,443] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-03-28 20:02:19,445] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:19,446] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:19,448] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:19,448] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:19,448] - ERROR - main - ConfigurationManager.get_model_trainer_config() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 43, in <module>
+    obj.initiate_model_trainer()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\model_trainer_pipeline.py", line 13, in initiate_model_trainer
+    model_trainer_config=config.get_model_trainer_config(config)
+TypeError: ConfigurationManager.get_model_trainer_config() takes 1 positional argument but 2 were given
+[2025-03-28 20:02:54,638] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 20:02:54,640] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:54,641] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:54,642] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:54,643] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:54,643] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 20:02:54,643] - INFO - data_ingestion - File already exists
+[2025-03-28 20:02:54,645] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:02:54,646] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 20:02:54,649] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:54,649] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:54,652] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:54,652] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:54,653] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 20:02:54,666] - INFO - data_validation - Performing data validation
+[2025-03-28 20:02:54,666] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 20:02:54,667] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:02:54,667] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 20:02:54,669] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:54,671] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:54,672] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:54,673] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:54,674] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 20:02:54,674] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-03-28 20:02:54,675] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-03-28 20:02:54,678] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 20:02:54,684] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 20:02:54,684] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 20:02:54,687] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 20:02:54,688] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 20:02:54,688] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:02:54,688] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-03-28 20:02:54,692] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:02:54,692] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:02:54,694] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:02:54,694] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:02:54,695] - INFO - common - created directory at: 'artifacts/mdoel_trainer'
+[2025-03-28 20:02:54,695] - INFO - model_trainer - Read train data
+[2025-03-28 20:02:54,712] - INFO - model_trainer - Read test data
+[2025-03-28 20:02:54,726] - INFO - model_trainer - Extract features
+[2025-03-28 20:02:54,730] - INFO - model_trainer - Extract target
+[2025-03-28 20:02:54,731] - INFO - model_trainer - Strat training model
+[2025-03-28 20:02:54,738] - INFO - model_trainer - Model saved in path: 'artifacts/mdoel_trainer\model.joblib'
+[2025-03-28 20:02:54,738] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:04:13,340] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 20:04:13,358] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:04:13,359] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:04:13,361] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:04:13,362] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:04:13,362] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 20:04:14,380] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 84DC:16D4ED:192D7:3A0E4:67E700BD
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 20:04:13 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lcy-eglc8600061-LCY
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743192254.616026,VS0,VE158
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: e0250199d1e1438bf97604c91cc6f470074ce9c2
+Expires: Fri, 28 Mar 2025 20:09:13 GMT
+Source-Age: 0
+
+
+[2025-03-28 20:04:14,393] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:04:14,393] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 20:04:14,397] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:04:14,398] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:04:14,400] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:04:14,400] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:04:14,400] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 20:04:14,413] - INFO - data_validation - Performing data validation
+[2025-03-28 20:04:14,414] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 20:04:14,414] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:04:14,414] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 20:04:14,416] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:04:14,417] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:04:14,418] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:04:14,419] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:04:14,419] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 20:04:14,419] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-03-28 20:04:14,420] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-03-28 20:04:14,424] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 20:04:14,431] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 20:04:14,431] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 20:04:14,434] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 20:04:14,434] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 20:04:14,435] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:04:14,435] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-03-28 20:04:14,436] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:04:14,437] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:04:14,439] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:04:14,439] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:04:14,439] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-03-28 20:04:14,440] - INFO - model_trainer - Read train data
+[2025-03-28 20:04:14,461] - INFO - model_trainer - Read test data
+[2025-03-28 20:04:14,476] - INFO - model_trainer - Extract features
+[2025-03-28 20:04:14,477] - INFO - model_trainer - Extract target
+[2025-03-28 20:04:14,479] - INFO - model_trainer - Strat training model
+[2025-03-28 20:04:14,484] - INFO - model_trainer - Model saved in path: 'artifacts/model_trainer\model.joblib'
+[2025-03-28 20:04:14,484] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:09,612] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 20:05:09,614] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:09,615] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:09,617] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:09,617] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:09,618] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 20:05:10,279] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 84DC:16D4ED:192D7:3A0E4:67E700BD
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 20:05:09 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lcy-eglc8600098-LCY
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1743192310.671499,VS0,VE2
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 576f86fcbcfa9b8c96158240f6797c629105c440
+Expires: Fri, 28 Mar 2025 20:10:09 GMT
+Source-Age: 56
+
+
+[2025-03-28 20:05:10,296] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:10,297] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 20:05:10,300] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:10,301] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:10,304] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:10,304] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:10,304] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 20:05:10,316] - INFO - data_validation - Performing data validation
+[2025-03-28 20:05:10,317] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 20:05:10,317] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:10,317] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 20:05:10,319] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:10,321] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:10,323] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:10,324] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:10,324] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 20:05:10,325] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-03-28 20:05:10,326] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-03-28 20:05:10,330] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 20:05:10,338] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 20:05:10,338] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 20:05:10,341] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 20:05:10,341] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 20:05:10,342] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:10,342] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-03-28 20:05:10,343] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:10,344] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:10,345] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:10,346] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:10,346] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-03-28 20:05:10,347] - INFO - model_trainer - Read train data
+[2025-03-28 20:05:10,363] - INFO - model_trainer - Read test data
+[2025-03-28 20:05:10,379] - INFO - model_trainer - Extract features
+[2025-03-28 20:05:10,381] - INFO - model_trainer - Extract target
+[2025-03-28 20:05:10,382] - INFO - model_trainer - Strat training model
+[2025-03-28 20:05:10,386] - INFO - model_trainer - Training completed
+[2025-03-28 20:05:10,388] - INFO - model_trainer - Model saved in path: 'artifacts/model_trainer\model.joblib'
+[2025-03-28 20:05:10,388] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:25,108] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 20:05:25,110] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:25,111] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:25,112] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:25,113] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:25,113] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 20:05:25,840] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 6928:1B309F:7585FF:FE86FB:67E70104
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 20:05:25 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980050-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743192325.067398,VS0,VE167
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 5a0a8e81cf16ca87dad49c3b26c5bd954491c4ce
+Expires: Fri, 28 Mar 2025 20:10:25 GMT
+Source-Age: 0
+
+
+[2025-03-28 20:05:25,859] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:25,859] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 20:05:25,861] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:25,862] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:25,863] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:25,864] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:25,864] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 20:05:25,876] - INFO - data_validation - Performing data validation
+[2025-03-28 20:05:25,876] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 20:05:25,876] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:25,877] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 20:05:25,879] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:25,879] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:25,881] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:25,881] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:25,881] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 20:05:25,882] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-03-28 20:05:25,882] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-03-28 20:05:25,886] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 20:05:25,892] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 20:05:25,892] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 20:05:25,895] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 20:05:25,895] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 20:05:25,895] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 20:05:25,895] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-03-28 20:05:25,897] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 20:05:25,898] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 20:05:25,899] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 20:05:25,899] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 20:05:25,900] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-03-28 20:05:25,900] - INFO - model_trainer - Read train data
+[2025-03-28 20:05:25,911] - INFO - model_trainer - Read test data
+[2025-03-28 20:05:25,923] - INFO - model_trainer - Extract features
+[2025-03-28 20:05:25,924] - INFO - model_trainer - Extract target
+[2025-03-28 20:05:25,925] - INFO - model_trainer - Start training model
+[2025-03-28 20:05:25,927] - INFO - model_trainer - Training completed
+[2025-03-28 20:05:25,928] - INFO - model_trainer - Model saved in path: 'artifacts/model_trainer\model.joblib'
+[2025-03-28 20:05:25,928] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
