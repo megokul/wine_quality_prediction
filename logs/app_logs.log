@@ -673,3 +673,181 @@ x==========x
 [2025-03-28 11:55:45,206] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
 x==========x
 
+[2025-03-28 13:13:49,907] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 13:13:49,909] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:13:49,910] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:13:49,912] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:13:49,913] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:13:49,913] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 13:13:49,913] - INFO - data_ingestion - File already exists
+[2025-03-28 13:13:49,915] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:13:49,915] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 13:13:49,917] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:13:49,918] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:13:49,920] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:13:49,920] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:13:49,921] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 13:13:49,949] - INFO - data_validation - Performing data validation
+[2025-03-28 13:13:49,950] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 13:13:49,950] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:13:49,950] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 13:13:49,952] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:13:49,952] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:13:49,954] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:13:49,955] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:13:49,956] - ERROR - main - "'ConfigBox' object has no attribute 'data_transformation'"
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 31, in <module>
+    obj.initiate_data_transformation()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_transformation_pipeline.py", line 13, in initiate_data_transformation
+    data_transformation_config=config.get_data_transformation_config()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 46, in get_data_transformation_config
+    config=self.config.data_transformation
+  File "box\\config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+[2025-03-28 13:18:35,708] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 13:18:35,733] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:18:35,733] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:18:35,736] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:18:35,736] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:18:35,736] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 13:18:35,737] - INFO - data_ingestion - File already exists
+[2025-03-28 13:18:35,738] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:18:35,738] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 13:18:35,740] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:18:35,740] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:18:35,742] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:18:35,743] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:18:35,743] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 13:18:35,765] - INFO - data_validation - Performing data validation
+[2025-03-28 13:18:35,766] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 13:18:35,766] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:18:35,766] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 13:18:35,768] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:18:35,769] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:18:35,771] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:18:35,771] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:18:35,771] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 13:18:35,779] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 13:18:35,789] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 13:18:35,789] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 13:18:35,791] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 13:18:35,791] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 13:18:35,791] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:19:14,672] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 13:19:14,674] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:19:14,674] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:19:14,675] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:19:14,676] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:19:14,676] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 13:19:15,684] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 9606:32E4F8:27BAD2:5C19FB:67E6A1D1
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 13:19:14 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980045-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743167955.622723,VS0,VE182
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 4b69261145f0c1ed3072b5b93272cbe9593fc38b
+Expires: Fri, 28 Mar 2025 13:24:14 GMT
+Source-Age: 0
+
+
+[2025-03-28 13:19:15,701] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:19:15,701] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 13:19:15,703] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:19:15,703] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:19:15,703] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:19:15,706] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:19:15,717] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 13:19:15,728] - INFO - data_validation - Performing data validation
+[2025-03-28 13:19:15,728] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 13:19:15,728] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 13:19:15,729] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-03-28 13:19:15,730] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 13:19:15,730] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 13:19:15,732] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 13:19:15,732] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 13:19:15,733] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-03-28 13:19:15,736] - INFO - data_transformation - Splited data into training and testing sets
+[2025-03-28 13:19:15,744] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-03-28 13:19:15,744] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-03-28 13:19:15,747] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-03-28 13:19:15,747] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-03-28 13:19:15,747] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+

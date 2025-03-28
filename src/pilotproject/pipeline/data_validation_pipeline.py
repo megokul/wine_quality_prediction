@@ -19,7 +19,7 @@ if __name__=='__main__':
         logger.info(f">>>>>> stage: {STAGE_NAME} started <<<<<<")
         obj=DataValidationPipeline()
         obj.initiate_data_validation()
-        logger.info(f">>>>>> stage: {STAGE_NAME} completed <<<<<<\n\nx==========x")
+        logger.info(f">>>>>> stage: {STAGE_NAME} completed <<<<<<\nx==========x\n")
     except Exception as e:
         logger.exception(e)
         raise e
