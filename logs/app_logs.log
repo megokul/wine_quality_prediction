@@ -181,3 +181,495 @@ Source-Age: 218
 
 
 [2025-03-14 11:11:25,338] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+[2025-03-28 11:27:16,708] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:27:16,708] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:27:16,708] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:27:16,708] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:27:16,708] - ERROR - main - expected str, bytes or os.PathLike object, not list
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 9, in <module>
+    data_ingestion.initiate_data_ingestion()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_ingestion_pipeline.py", line 12, in initiate_data_ingestion
+    config = ConfigurationManager()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 16, in __init__
+    create_directories([self.config.artifacts_root])
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\ensure\main.py", line 835, in __call__
+    return self.f(*args, **kwargs)
+  File "E:\MyProjects\pilotproject\src\pilotproject\utils\common.py", line 48, in create_directories
+    os.makedirs(path, exist_ok=True)  # Create directories, ignoring if they already exist
+  File "E:\MyProjects\pilotproject\venv\lib\os.py", line 210, in makedirs
+    head, tail = path.split(name)
+  File "E:\MyProjects\pilotproject\venv\lib\ntpath.py", line 211, in split
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not list
+[2025-03-28 11:30:19,796] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:30:19,796] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:30:19,796] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:30:19,796] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:30:19,796] - ERROR - main - expected str, bytes or os.PathLike object, not list
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 9, in <module>
+    data_ingestion.initiate_data_ingestion()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_ingestion_pipeline.py", line 12, in initiate_data_ingestion
+    config = ConfigurationManager()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 16, in __init__
+    create_directories([self.config.artifacts_root])
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\ensure\main.py", line 835, in __call__
+    return self.f(*args, **kwargs)
+  File "E:\MyProjects\pilotproject\src\pilotproject\utils\common.py", line 48, in create_directories
+    os.makedirs(path, exist_ok=True)  # Create directories, ignoring if they already exist
+  File "E:\MyProjects\pilotproject\venv\lib\os.py", line 210, in makedirs
+    head, tail = path.split(name)
+  File "E:\MyProjects\pilotproject\venv\lib\ntpath.py", line 211, in split
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not list
+[2025-03-28 11:30:33,679] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:30:33,679] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:30:33,679] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:30:33,679] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:30:33,679] - ERROR - main - expected str, bytes or os.PathLike object, not list
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 9, in <module>
+    data_ingestion.initiate_data_ingestion()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_ingestion_pipeline.py", line 12, in initiate_data_ingestion
+    config = ConfigurationManager()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 16, in __init__
+    create_directories([self.config.artifacts_root])
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\ensure\main.py", line 835, in __call__
+    return self.f(*args, **kwargs)
+  File "E:\MyProjects\pilotproject\src\pilotproject\utils\common.py", line 48, in create_directories
+    os.makedirs(path, exist_ok=True)  # Create directories, ignoring if they already exist
+  File "E:\MyProjects\pilotproject\venv\lib\os.py", line 210, in makedirs
+    head, tail = path.split(name)
+  File "E:\MyProjects\pilotproject\venv\lib\ntpath.py", line 211, in split
+    p = os.fspath(p)
+TypeError: expected str, bytes or os.PathLike object, not list
+[2025-03-28 11:31:51,549] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:31:51,550] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:31:51,551] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:31:51,552] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:31:51,553] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:31:51,553] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:31:52,594] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 0CE9:27EDCD:5699F1:BDCC1E:67E688A6
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 11:31:51 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lcy-eglc8600029-LCY
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743161511.447623,VS0,VE195
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 922ec9740dcfcd1684ff225940615fca5dc58e44
+Expires: Fri, 28 Mar 2025 11:36:51 GMT
+Source-Age: 0
+
+
+[2025-03-28 11:31:52,606] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:31:52,606] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:31:52,606] - ERROR - main - DataValidationPipeline.__init__() takes 0 positional arguments but 1 was given
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 18, in <module>
+    obj=DataValidationPipeline()
+TypeError: DataValidationPipeline.__init__() takes 0 positional arguments but 1 was given
+[2025-03-28 11:33:12,902] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:33:12,902] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:33:12,902] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:33:12,902] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:33:12,902] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:33:12,902] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:33:12,902] - INFO - data_ingestion - File already exists
+[2025-03-28 11:33:12,902] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:33:12,902] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:33:12,909] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:33:12,909] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:33:12,911] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:33:12,912] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:33:12,913] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:33:12,931] - ERROR - main - 'method' object is not iterable
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 19, in <module>
+    obj.initiate_data_validation()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_validation_pipeline.py", line 15, in initiate_data_validation
+    data_validation.validate_all_columns()
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 30, in validate_all_columns
+    raise e
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 17, in validate_all_columns
+    expected_column_names = set(expected_column_names)
+TypeError: 'method' object is not iterable
+[2025-03-28 11:39:29,196] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:39:29,196] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:39:29,196] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:39:29,196] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:39:29,196] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:39:29,196] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:39:29,196] - INFO - data_ingestion - File already exists
+[2025-03-28 11:39:29,212] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:39:29,213] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:39:29,214] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:39:29,214] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:39:29,216] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:39:29,217] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:39:29,217] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:39:29,239] - ERROR - main - 'method' object is not iterable
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 19, in <module>
+    obj.initiate_data_validation()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_validation_pipeline.py", line 15, in initiate_data_validation
+    data_validation.validate_all_columns()
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 30, in validate_all_columns
+    raise e
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 17, in validate_all_columns
+    expected_column_names = set(expected_column_names)
+TypeError: 'method' object is not iterable
+[2025-03-28 11:41:47,227] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:41:47,227] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:41:47,227] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:41:47,227] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:41:47,227] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:41:47,227] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:41:47,227] - INFO - data_ingestion - File already exists
+[2025-03-28 11:41:47,243] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:41:47,243] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:41:47,245] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:41:47,246] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:41:47,248] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:41:47,248] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:41:47,248] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:41:47,260] - ERROR - main - 'method' object is not iterable
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 19, in <module>
+    obj.initiate_data_validation()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_validation_pipeline.py", line 15, in initiate_data_validation
+    data_validation.validate_all_columns()
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 33, in validate_all_columns
+    raise e
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 20, in validate_all_columns
+    expected_column_names = set(expected_column_names)
+TypeError: 'method' object is not iterable
+[2025-03-28 11:46:05,119] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:46:05,119] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:46:05,119] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:46:05,119] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:46:05,119] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:46:05,119] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:46:05,119] - INFO - data_ingestion - File already exists
+[2025-03-28 11:46:05,119] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:46:05,119] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:46:05,131] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:46:05,132] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:46:05,134] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:46:05,135] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:46:05,135] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:46:05,164] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:47:03,892] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:47:03,892] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:47:03,892] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:47:03,892] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:47:03,892] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:47:03,892] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:47:03,892] - INFO - data_ingestion - File already exists
+[2025-03-28 11:47:03,892] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:47:03,892] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:47:03,900] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:47:03,900] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:47:03,902] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:47:03,903] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:47:03,903] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:47:03,922] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:50:08,947] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:50:08,948] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:50:08,949] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:50:08,950] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:50:08,951] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:50:08,951] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:50:08,951] - INFO - data_ingestion - File already exists
+[2025-03-28 11:50:08,952] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:50:08,953] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:50:08,957] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:50:08,958] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:50:08,960] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:50:08,961] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:50:08,961] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:50:08,980] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:51:31,295] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:51:31,295] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:51:31,295] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:51:31,295] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:51:31,295] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:51:31,295] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:51:31,295] - INFO - data_ingestion - File already exists
+[2025-03-28 11:51:31,295] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:51:31,295] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:51:31,311] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:51:31,312] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:51:31,313] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:51:31,314] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:51:31,315] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:51:31,331] - ERROR - main - name 'logger' is not defined
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 19, in <module>
+    obj.initiate_data_validation()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\data_validation_pipeline.py", line 15, in initiate_data_validation
+    data_validation.validate_all_columns()
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\data_validation.py", line 18, in validate_all_columns
+    logger.info("Performing Data validation")
+NameError: name 'logger' is not defined
+[2025-03-28 11:51:54,795] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:51:54,797] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:51:54,797] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:51:54,799] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:51:54,800] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:51:54,800] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:51:54,800] - INFO - data_ingestion - File already exists
+[2025-03-28 11:51:54,800] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:51:54,800] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:51:54,803] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:51:54,803] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:51:54,805] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:51:54,805] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:51:54,805] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:51:54,858] - INFO - data_validation - Performing Data validation
+[2025-03-28 11:51:54,864] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:53:01,411] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:53:01,411] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:53:01,415] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:53:01,416] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:53:01,416] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:53:01,417] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:53:01,417] - INFO - data_ingestion - File already exists
+[2025-03-28 11:53:01,418] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:53:01,421] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:53:01,422] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:53:01,423] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:53:01,425] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:53:01,425] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:53:01,425] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:53:01,441] - INFO - data_validation - Performing Data validation
+[2025-03-28 11:53:01,442] - INFO - data_validation - Writing Validation status to file at artifacts/data_validation/status.txt
+[2025-03-28 11:53:01,442] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:53:18,289] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:53:18,289] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:53:18,289] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:53:18,289] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:53:18,289] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:53:18,289] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:53:18,289] - INFO - data_ingestion - File already exists
+[2025-03-28 11:53:18,289] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:53:18,289] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:53:18,302] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:53:18,303] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:53:18,304] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:53:18,304] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:53:18,305] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:53:18,341] - INFO - data_validation - Performing Data validation
+[2025-03-28 11:53:18,342] - INFO - data_validation - Writing Validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 11:53:18,343] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:53:58,274] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:53:58,274] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:53:58,274] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:53:58,274] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:53:58,274] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:53:58,274] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:53:59,276] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 16ED:39D410:559ED5:BF4E16:67E68DD5
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 11:53:58 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980045-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743162838.171558,VS0,VE164
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: aa44221a9027d5983da0b51bf21678739b1a5334
+Expires: Fri, 28 Mar 2025 11:58:58 GMT
+Source-Age: 0
+
+
+[2025-03-28 11:53:59,301] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:53:59,304] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:53:59,306] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:53:59,307] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:53:59,309] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:53:59,310] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:53:59,310] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:53:59,333] - INFO - data_validation - Performing Data validation
+[2025-03-28 11:53:59,334] - INFO - data_validation - Writing Validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 11:53:59,334] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+
+x==========x
+[2025-03-28 11:54:33,221] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:54:33,237] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:54:33,237] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:54:33,238] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:54:33,239] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:54:33,239] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:54:33,239] - INFO - data_ingestion - File already exists
+[2025-03-28 11:54:33,241] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 11:54:33,241] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:54:33,242] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:54:33,243] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:54:33,245] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:54:33,246] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:54:33,246] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:54:33,265] - INFO - data_validation - Performing Data validation
+[2025-03-28 11:54:33,266] - INFO - data_validation - Writing Validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 11:54:33,266] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 11:54:52,458] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:54:52,458] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:54:52,462] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:54:52,462] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:54:52,462] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:54:52,462] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:54:53,173] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 0CE9:27EDCD:5699F1:BDCC1E:67E688A6
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 11:54:52 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lcy-eglc8600038-LCY
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1743162892.116135,VS0,VE132
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: cde648da6943149cfeab47b94942b8a8a8170c2b
+Expires: Fri, 28 Mar 2025 11:59:52 GMT
+Source-Age: 0
+
+
+[2025-03-28 11:54:53,207] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 11:54:53,208] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:54:53,208] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:54:53,209] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:54:53,210] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:54:53,211] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:54:53,211] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:54:53,217] - INFO - data_validation - Performing Data validation
+[2025-03-28 11:54:53,217] - INFO - data_validation - Writing Validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 11:54:53,217] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-03-28 11:55:44,505] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-03-28 11:55:44,505] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:55:44,505] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:55:44,521] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:55:44,521] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:55:44,521] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-03-28 11:55:45,151] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 0CE9:27EDCD:5699F1:BDCC1E:67E688A6
+Accept-Ranges: bytes
+Date: Fri, 28 Mar 2025 11:55:44 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lcy-eglc8600023-LCY
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1743162944.211044,VS0,VE1
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: d30623023d359385ba19e4ee780c673fe3e5a90c
+Expires: Fri, 28 Mar 2025 12:00:44 GMT
+Source-Age: 52
+
+
+[2025-03-28 11:55:45,172] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-03-28 11:55:45,173] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-03-28 11:55:45,177] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-03-28 11:55:45,178] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-03-28 11:55:45,180] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-03-28 11:55:45,181] - INFO - common - created directory at: 'artifacts'
+[2025-03-28 11:55:45,192] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-03-28 11:55:45,206] - INFO - data_validation - Performing data validation
+[2025-03-28 11:55:45,206] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-03-28 11:55:45,206] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+

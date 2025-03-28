@@ -3,3 +3,4 @@ joblib==1.4.2
 ensure==1.0.4
 python-box==7.3.2
 ipykernel==6.29.5
+pandas==2.2.3
