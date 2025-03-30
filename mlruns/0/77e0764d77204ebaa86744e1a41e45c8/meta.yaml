@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/MyProjects/pilotproject/mlruns/0/77e0764d77204ebaa86744e1a41e45c8/artifacts
+end_time: 1743329643963
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 77e0764d77204ebaa86744e1a41e45c8
+run_name: melodic-moose-356
+run_uuid: 77e0764d77204ebaa86744e1a41e45c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743329640882
+status: 3
+tags: []
+user_id: iamgo

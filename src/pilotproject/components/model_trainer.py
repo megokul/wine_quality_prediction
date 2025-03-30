@@ -24,10 +24,8 @@ class ModelTrainer:
 
         logger.info("Extract features")
         x_train=train_data.drop(target_column, axis=1)
-        x_test=test_data.drop(target_column, axis=1)
         logger.info("Extract target")
         y_train=train_data[[target_column]]
-        y_test=test_data[[target_column]]
 
         lr=ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         logger.info("Start training model")
