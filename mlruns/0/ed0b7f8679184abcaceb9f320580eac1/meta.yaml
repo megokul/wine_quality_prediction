@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/MyProjects/pilotproject/mlruns/0/ed0b7f8679184abcaceb9f320580eac1/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ed0b7f8679184abcaceb9f320580eac1
+run_name: gifted-grub-950
+run_uuid: ed0b7f8679184abcaceb9f320580eac1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743332555359
+status: 1
+tags: []
+user_id: iamgo

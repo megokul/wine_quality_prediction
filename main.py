@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 from src.pilotproject import logger
 from src.pilotproject.pipeline.data_ingestion_pipeline import DataIngestionPipeline
@@ -9,7 +10,6 @@ from src.pilotproject.pipeline.model_evaluation_pipeline import ModelEvaluationP
 
 # Load from .env file to set environment variables
 load_dotenv()
-
 
 STAGE_NAME = "Data Ingestion Stage"
 try:

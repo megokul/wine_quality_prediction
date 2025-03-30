@@ -62,6 +62,7 @@ class ModelEvaluation:
             mlflow.log_metrics(test_scores)
             logger.info('Log test metrics with MLFlow')
 
+            logger.info(f"MLFlow uri tracking type: '{tracking_uri_type_store}'")
             if tracking_uri_type_store!='file':
                 mlflow.sklearn.log_model(model, 'model', registered_model_name='ElasticNet_model', input_example=x_test.iloc[:1])
             else:

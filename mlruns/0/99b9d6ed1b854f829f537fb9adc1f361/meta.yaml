@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/MyProjects/pilotproject/mlruns/0/99b9d6ed1b854f829f537fb9adc1f361/artifacts
+end_time: 1743329992612
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 99b9d6ed1b854f829f537fb9adc1f361
+run_name: exultant-foal-206
+run_uuid: 99b9d6ed1b854f829f537fb9adc1f361
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743329989651
+status: 3
+tags: []
+user_id: iamgo
