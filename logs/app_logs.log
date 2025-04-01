@@ -2126,3 +2126,470 @@ x==========x
 [2025-03-30 12:15:28,522] - INFO - main - >>>>>> stage: Model Evaluation Stage completed <<<<<<
 x==========x
 
+[2025-04-01 22:22:12,121] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-04-01 22:22:12,121] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-04-01 22:22:12,132] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,132] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,137] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,137] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,137] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,137] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,137] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,137] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-01 22:22:12,137] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-01 22:22:12,137] - INFO - data_ingestion - File already exists
+[2025-04-01 22:22:12,153] - INFO - data_ingestion - File already exists
+[2025-04-01 22:22:12,191] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:12,193] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:12,193] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-04-01 22:22:12,193] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-04-01 22:22:12,197] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,197] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,197] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,209] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,213] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,213] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,213] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,213] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,213] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-01 22:22:12,213] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-01 22:22:12,233] - INFO - data_validation - Performing data validation
+[2025-04-01 22:22:12,233] - INFO - data_validation - Performing data validation
+[2025-04-01 22:22:12,234] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-01 22:22:12,234] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-01 22:22:12,234] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:12,235] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:12,235] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-04-01 22:22:12,235] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-04-01 22:22:12,243] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,243] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,243] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,243] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,243] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,243] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,243] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,243] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,243] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-01 22:22:12,243] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-01 22:22:12,243] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-04-01 22:22:12,243] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-04-01 22:22:12,243] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-04-01 22:22:12,243] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-04-01 22:22:12,260] - INFO - data_transformation - Splited data into training and testing sets
+[2025-04-01 22:22:12,266] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-04-01 22:22:12,266] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-04-01 22:22:12,266] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-04-01 22:22:12,266] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-04-01 22:22:12,270] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-04-01 22:22:12,270] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-04-01 22:22:12,270] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-04-01 22:22:12,270] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-04-01 22:22:12,270] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:12,270] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:12,270] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-04-01 22:22:12,270] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-04-01 22:22:12,274] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,274] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:12,276] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,277] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:12,278] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,279] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:12,279] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,279] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:12,280] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-01 22:22:12,280] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-01 22:22:12,280] - INFO - model_trainer - Read train data
+[2025-04-01 22:22:12,280] - INFO - model_trainer - Read train data
+[2025-04-01 22:22:12,289] - INFO - model_trainer - Read test data
+[2025-04-01 22:22:12,289] - INFO - model_trainer - Read test data
+[2025-04-01 22:22:12,289] - INFO - model_trainer - Extract features
+[2025-04-01 22:22:12,289] - INFO - model_trainer - Extract features
+[2025-04-01 22:22:12,305] - INFO - model_trainer - Extract target
+[2025-04-01 22:22:12,305] - INFO - model_trainer - Extract target
+[2025-04-01 22:22:12,305] - INFO - model_trainer - Start training model
+[2025-04-01 22:22:12,305] - INFO - model_trainer - Start training model
+[2025-04-01 22:22:12,305] - ERROR - main - Input X contains NaN.
+ElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 50, in <module>
+    obj.initiate_model_trainer()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\model_trainer_pipeline.py", line 15, in initiate_model_trainer
+    model_trainer.train()
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\model_trainer.py", line 32, in train
+    lr.fit(x_train, y_train)
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\linear_model\_coordinate_descent.py", line 982, in fit
+    X, y = validate_data(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 2961, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 1370, in check_X_y
+    X = check_array(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 1107, in check_array
+    _assert_all_finite(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+[2025-04-01 22:22:12,305] - ERROR - main - Input X contains NaN.
+ElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 50, in <module>
+    obj.initiate_model_trainer()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\model_trainer_pipeline.py", line 15, in initiate_model_trainer
+    model_trainer.train()
+  File "E:\MyProjects\pilotproject\src\pilotproject\components\model_trainer.py", line 32, in train
+    lr.fit(x_train, y_train)
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\linear_model\_coordinate_descent.py", line 982, in fit
+    X, y = validate_data(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 2961, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 1370, in check_X_y
+    X = check_array(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 1107, in check_array
+    _assert_all_finite(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "E:\MyProjects\pilotproject\venv\lib\site-packages\sklearn\utils\validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+[2025-04-01 22:22:12,992] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-04-01 22:22:12,998] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:13,001] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:13,003] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:13,005] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:13,005] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-01 22:22:13,006] - INFO - data_ingestion - File already exists
+[2025-04-01 22:22:13,012] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:13,012] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-04-01 22:22:13,023] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:13,024] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:13,027] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:13,027] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:13,029] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-01 22:22:13,054] - INFO - data_validation - Performing data validation
+[2025-04-01 22:22:13,055] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-01 22:22:13,055] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:13,055] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-04-01 22:22:13,061] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:13,062] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:13,065] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:13,066] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:13,067] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-01 22:22:13,069] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-04-01 22:22:13,071] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-04-01 22:22:13,082] - INFO - data_transformation - Splited data into training and testing sets
+[2025-04-01 22:22:13,092] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-04-01 22:22:13,092] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-04-01 22:22:13,092] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-04-01 22:22:13,092] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-04-01 22:22:13,092] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:13,092] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-04-01 22:22:13,092] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:13,108] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:13,108] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:13,108] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:13,108] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-01 22:22:13,108] - INFO - model_trainer - Read train data
+[2025-04-01 22:22:13,140] - INFO - model_trainer - Read test data
+[2025-04-01 22:22:13,171] - INFO - model_trainer - Extract features
+[2025-04-01 22:22:13,171] - INFO - model_trainer - Extract target
+[2025-04-01 22:22:13,171] - INFO - model_trainer - Start training model
+[2025-04-01 22:22:13,171] - INFO - model_trainer - Training completed
+[2025-04-01 22:22:13,171] - INFO - model_trainer - Model saved in path: 'artifacts/model_trainer\model.joblib'
+[2025-04-01 22:22:13,171] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:22:13,187] - INFO - main - >>>>>> stage: Model Evaluation Stage started <<<<<<
+[2025-04-01 22:22:13,187] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:22:13,187] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:22:13,203] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:22:13,203] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:22:13,203] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-01 22:22:13,203] - INFO - model_evaluation - Read test data
+[2025-04-01 22:22:13,219] - INFO - model_evaluation - Load model
+[2025-04-01 22:22:13,235] - INFO - model_evaluation - Start tracking with MLFlow
+[2025-04-01 22:22:15,638] - INFO - model_evaluation - evaluation metrics generated
+[2025-04-01 22:22:15,638] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-01 22:22:15,638] - INFO - model_evaluation - Save test metrics at path : 'artifacts/model_evaluation/metrics.json'
+[2025-04-01 22:22:15,877] - INFO - model_evaluation - Log model params
+[2025-04-01 22:22:16,112] - INFO - model_evaluation - Log test metrics with MLFlow
+[2025-04-01 22:22:16,112] - INFO - model_evaluation - MLFlow uri tracking type: 'https'
+[2025-04-01 22:22:30,996] - INFO - main - >>>>>> stage: Model Evaluation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:24:19,614] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:24:19,628] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:24:19,642] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:24:19,647] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:24:19,647] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:25:23,959] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:25:23,963] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:25:23,971] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:25:23,975] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:25:23,977] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:31:29,868] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-04-01 22:31:29,872] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:31:29,881] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:31:29,893] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:31:29,899] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:31:29,904] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-01 22:31:29,906] - INFO - data_ingestion - File already exists
+[2025-04-01 22:31:29,966] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:31:29,967] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-04-01 22:31:29,973] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:31:29,974] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:31:29,978] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:31:29,981] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:31:29,982] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-01 22:31:30,003] - INFO - data_validation - Performing data validation
+[2025-04-01 22:31:30,005] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-01 22:31:30,005] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:31:30,006] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-04-01 22:31:30,011] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:31:30,015] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:31:30,021] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:31:30,028] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:31:30,029] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-01 22:31:30,030] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-04-01 22:31:30,045] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-04-01 22:31:30,065] - INFO - data_transformation - Splited data into training and testing sets
+[2025-04-01 22:31:30,078] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-04-01 22:31:30,079] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-04-01 22:31:30,083] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-04-01 22:31:30,083] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-04-01 22:31:30,085] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:31:30,085] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-04-01 22:31:30,093] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:31:30,095] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:31:30,098] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:31:30,100] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:31:30,100] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-01 22:31:30,103] - INFO - model_trainer - Read train data
+[2025-04-01 22:31:30,120] - INFO - model_trainer - Read test data
+[2025-04-01 22:31:30,147] - INFO - model_trainer - Extract features
+[2025-04-01 22:31:30,151] - INFO - model_trainer - Extract target
+[2025-04-01 22:31:30,154] - INFO - model_trainer - Start training model
+[2025-04-01 22:31:30,172] - INFO - model_trainer - Training completed
+[2025-04-01 22:31:30,180] - INFO - model_trainer - Model saved in path: 'artifacts/model_trainer\model.joblib'
+[2025-04-01 22:31:30,182] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:31:30,183] - INFO - main - >>>>>> stage: Model Evaluation Stage started <<<<<<
+[2025-04-01 22:31:30,198] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:31:30,202] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:31:30,210] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:31:30,212] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:31:30,213] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-01 22:31:30,218] - INFO - model_evaluation - Read test data
+[2025-04-01 22:31:30,254] - INFO - model_evaluation - Load model
+[2025-04-01 22:31:30,259] - INFO - model_evaluation - Start tracking with MLFlow
+[2025-04-01 22:31:32,190] - INFO - model_evaluation - evaluation metrics generated
+[2025-04-01 22:31:32,190] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-01 22:31:32,190] - INFO - model_evaluation - Save test metrics at path : 'artifacts/model_evaluation/metrics.json'
+[2025-04-01 22:31:32,431] - INFO - model_evaluation - Log model params
+[2025-04-01 22:31:33,396] - INFO - model_evaluation - Log test metrics with MLFlow
+[2025-04-01 22:31:33,396] - INFO - model_evaluation - MLFlow uri tracking type: 'https'
+[2025-04-01 22:31:47,384] - INFO - main - >>>>>> stage: Model Evaluation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:32:09,958] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:32:09,959] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:32:09,961] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:32:09,962] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:32:09,963] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:38:18,959] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:38:18,959] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:38:18,974] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:38:18,975] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:38:18,975] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:39:52,381] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:39:52,385] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:39:52,388] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:39:52,390] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:39:52,391] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:39:52,391] - INFO - model_prediction - Load model
+[2025-04-01 22:39:52,919] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:39:52,956] - INFO - model_prediction - Read train data
+[2025-04-01 22:39:54,625] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:39:54,625] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:39:54,625] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:39:54,625] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:39:54,625] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:39:54,625] - INFO - model_prediction - Load model
+[2025-04-01 22:39:54,625] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:39:54,625] - INFO - model_prediction - Read train data
+[2025-04-01 22:40:27,458] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:40:27,463] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:40:27,472] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:40:27,475] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:40:27,477] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:40:27,478] - INFO - model_prediction - Load model
+[2025-04-01 22:40:29,152] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:40:29,163] - INFO - model_prediction - Read train data
+[2025-04-01 22:45:42,943] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:45:42,946] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:45:42,952] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:45:42,954] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:45:42,956] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:45:42,957] - INFO - model_prediction - Load model
+[2025-04-01 22:45:43,498] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:45:43,500] - INFO - model_prediction - Write prediction to file path: '{predictions_file_path}'
+[2025-04-01 22:46:03,755] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:46:03,755] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:46:03,757] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:46:03,757] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:46:03,757] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:46:03,758] - INFO - model_prediction - Load model
+[2025-04-01 22:46:03,758] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:46:03,759] - INFO - model_prediction - Write prediction to file path: '{predictions_file_path}'
+[2025-04-01 22:46:49,507] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:46:49,507] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:46:49,515] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:46:49,516] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:46:49,517] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:46:49,519] - INFO - model_prediction - Load model
+[2025-04-01 22:46:49,519] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:46:49,524] - INFO - model_prediction - Write prediction to file path: '{predictions_file_path}'
+[2025-04-01 22:47:46,391] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:47:46,396] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:47:46,405] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:47:46,408] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:47:46,408] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:47:46,408] - INFO - model_prediction - Load model
+[2025-04-01 22:47:46,408] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:47:46,422] - INFO - model_prediction - Write prediction to file path: '{predictions_file_path}'
+[2025-04-01 22:48:59,832] - INFO - main - >>>>>> stage: Data Ingestion Stage started <<<<<<
+[2025-04-01 22:48:59,835] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:48:59,835] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:48:59,837] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:48:59,838] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:48:59,841] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-01 22:49:01,877] - INFO - data_ingestion - File: 'artifacts/data_ingestion/data.zip' downloaded successfully with the following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: E5EC:6751E:41695:9019D:67EC5F4C
+Accept-Ranges: bytes
+Date: Tue, 01 Apr 2025 21:49:01 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980083-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743544141.982693,VS0,VE178
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 31c9959b208a46a6b86a2bdfbcd7fecea1b9b076
+Expires: Tue, 01 Apr 2025 21:54:01 GMT
+Source-Age: 0
+
+
+[2025-04-01 22:49:01,917] - INFO - main - >>>>>> stage: Data Ingestion Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:49:01,920] - INFO - main - >>>>>> stage: Data Validation Stage started <<<<<<
+[2025-04-01 22:49:01,923] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:49:01,923] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:49:01,939] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:49:01,943] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:49:01,945] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-01 22:49:01,985] - INFO - data_validation - Performing data validation
+[2025-04-01 22:49:01,985] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-01 22:49:01,985] - INFO - main - >>>>>> stage: Data Validation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:49:01,985] - INFO - main - >>>>>> stage: Data Transformation Stage started <<<<<<
+[2025-04-01 22:49:01,992] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:49:01,992] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:49:01,996] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:49:01,996] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:49:01,996] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-01 22:49:01,996] - INFO - data_transformation_pipeline - Checking valdation status...
+[2025-04-01 22:49:01,996] - INFO - data_transformation_pipeline - Valdation status: 'True
+[2025-04-01 22:49:02,009] - INFO - data_transformation - Splited data into training and testing sets
+[2025-04-01 22:49:02,020] - INFO - data_transformation - Training data set saved at path: 'artifacts/data_transformation\train.csv'
+[2025-04-01 22:49:02,020] - INFO - data_transformation - Shape of training data set: (1199, 12)
+[2025-04-01 22:49:02,023] - INFO - data_transformation - Testing data set saved at path: 'artifacts/data_transformation\test.csv'
+[2025-04-01 22:49:02,023] - INFO - data_transformation - Shape of testing data set: (400, 12)
+[2025-04-01 22:49:02,023] - INFO - main - >>>>>> stage: Data Transformation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:49:02,023] - INFO - main - >>>>>> stage: Model Trainer Stage started <<<<<<
+[2025-04-01 22:49:02,031] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:49:02,031] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:49:02,035] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:49:02,035] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:49:02,035] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-01 22:49:02,035] - INFO - model_trainer - Read train data
+[2025-04-01 22:49:02,059] - INFO - model_trainer - Read test data
+[2025-04-01 22:49:02,081] - INFO - model_trainer - Extract features
+[2025-04-01 22:49:02,083] - INFO - model_trainer - Extract target
+[2025-04-01 22:49:02,083] - INFO - model_trainer - Start training model
+[2025-04-01 22:49:02,085] - INFO - model_trainer - Training completed
+[2025-04-01 22:49:02,085] - INFO - model_trainer - Model saved in path: 'artifacts/model_trainer\model.joblib'
+[2025-04-01 22:49:02,085] - INFO - main - >>>>>> stage: Model Trainer Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:49:02,085] - INFO - main - >>>>>> stage: Model Evaluation Stage started <<<<<<
+[2025-04-01 22:49:02,085] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:49:02,085] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:49:02,085] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:49:02,085] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:49:02,085] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-01 22:49:02,095] - INFO - model_evaluation - Read test data
+[2025-04-01 22:49:02,111] - INFO - model_evaluation - Load model
+[2025-04-01 22:49:02,113] - INFO - model_evaluation - Start tracking with MLFlow
+[2025-04-01 22:49:02,994] - INFO - model_evaluation - evaluation metrics generated
+[2025-04-01 22:49:02,994] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-01 22:49:02,994] - INFO - model_evaluation - Save test metrics at path : 'artifacts/model_evaluation/metrics.json'
+[2025-04-01 22:49:03,272] - INFO - model_evaluation - Log model params
+[2025-04-01 22:49:03,500] - INFO - model_evaluation - Log test metrics with MLFlow
+[2025-04-01 22:49:03,500] - INFO - model_evaluation - MLFlow uri tracking type: 'https'
+[2025-04-01 22:49:13,263] - INFO - main - >>>>>> stage: Model Evaluation Stage completed <<<<<<
+x==========x
+
+[2025-04-01 22:49:43,825] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-01 22:49:43,825] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-01 22:49:43,827] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-01 22:49:43,827] - INFO - common - created directory at: 'artifacts'
+[2025-04-01 22:49:43,828] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-01 22:49:43,828] - INFO - model_prediction - Load model
+[2025-04-01 22:49:44,340] - INFO - model_prediction - Generate prediction
+[2025-04-01 22:49:44,340] - INFO - model_prediction - Write prediction to file path: '{predictions_file_path}'

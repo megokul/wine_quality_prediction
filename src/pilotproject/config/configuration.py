@@ -5,7 +5,8 @@ from src.pilotproject.entity.config_entity import (DataIngestionConfig,
                                                    DataValidationConfig, 
                                                    DataTransformationConfig, 
                                                    ModelTrainerConfig, 
-                                                   ModelEvaluationConfig)
+                                                   ModelEvaluationConfig,
+                                                   ModelPredictionConfig)
 
 
 class ConfigurationManager:
@@ -94,3 +95,15 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
+
+    def get_model_prediction_config(self) -> ModelPredictionConfig:
+        config=self.config.model_prediction
+        create_directories(config.root_dir)
+
+        model_prediction_config=ModelPredictionConfig(
+            root_dir=config.root_dir,
+            model_path=config.model_path,
+            predictions_file_path=config.predictions_file_path
+        )
+
+        return model_prediction_config

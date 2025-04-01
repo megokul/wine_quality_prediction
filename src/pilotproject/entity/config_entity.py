@@ -44,3 +44,9 @@ class ModelEvaluationConfig:
     target_column: str
     mlflow_uri: str
     all_params: dict
+
+@dataclass
+class ModelPredictionConfig:
+    root_dir: Path
+    model_path: Path
+    predictions_file_path: Path
