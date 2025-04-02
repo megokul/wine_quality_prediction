@@ -103,3 +103,1003 @@ x==========x
 [2025-04-02 09:05:19,138] - INFO - model_prediction - Load model
 [2025-04-02 09:05:20,291] - INFO - model_prediction - Generate prediction
 [2025-04-02 09:05:20,296] - INFO - model_prediction - Write prediction to file path: 'artifacts/model_prediction/predictions.csv'
+[2025-04-02 19:08:28,492] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 19:08:28,511] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:08:28,511] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:08:28,524] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:08:28,524] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:08:28,525] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 19:08:30,792] - INFO - data_ingestion - File downloaded successfully: 'artifacts/data_ingestion/data.zip'
+[2025-04-02 19:08:30,796] - DEBUG - data_ingestion - Download headers:
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 2B08:C5DB:1125E6:21E0A0:67ED7D1C
+Accept-Ranges: bytes
+Date: Wed, 02 Apr 2025 18:08:28 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980042-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743617309.666292,VS0,VE168
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: d649616b06f04a5b3e9b455d1c05700a3c6bee74
+Expires: Wed, 02 Apr 2025 18:13:28 GMT
+Source-Age: 0
+
+
+[2025-04-02 19:08:30,837] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 19:08:30,837] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:08:30,837] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 19:08:30,845] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:08:30,847] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:08:30,850] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:08:30,852] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:08:30,853] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 19:08:30,874] - INFO - data_validation - Performing data validation
+[2025-04-02 19:08:30,874] - INFO - data_validation - Column validation passed
+[2025-04-02 19:08:30,874] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 19:08:30,874] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:08:30,874] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 19:08:30,883] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:08:30,884] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:08:30,886] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:08:30,887] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:08:30,887] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 19:08:30,888] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 19:08:30,904] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 19:08:30,907] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 19:08:30,914] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 19:08:30,929] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 19:08:30,930] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 19:08:30,936] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 19:08:30,936] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 19:08:30,936] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:08:30,936] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 19:08:30,945] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:08:30,947] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:08:30,949] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:08:30,949] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:08:30,952] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 19:08:30,953] - ERROR - main - "'ConfigBox' object has no attribute 'target_column'"
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 73, in <module>
+    obj.initiate_model_trainer()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\model_trainer_pipeline.py", line 28, in initiate_model_trainer
+    model_trainer_config = config.get_model_trainer_config()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 114, in get_model_trainer_config
+    target_column=schema.target_column,
+  File "box\\config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'target_column'"
+[2025-04-02 19:24:55,081] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 19:24:55,084] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:24:55,085] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:24:55,086] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:24:55,086] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:24:55,088] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 19:24:56,739] - INFO - data_ingestion - File downloaded successfully: 'artifacts/data_ingestion/data.zip'
+[2025-04-02 19:24:56,750] - DEBUG - data_ingestion - Download headers:
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 2B08:C5DB:1125E6:21E0A0:67ED7D1C
+Accept-Ranges: bytes
+Date: Wed, 02 Apr 2025 18:24:54 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980082-LHR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1743618294.373412,VS0,VE165
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 13d397efb57d5e54c397781771f0cae630d783c0
+Expires: Wed, 02 Apr 2025 18:29:54 GMT
+Source-Age: 0
+
+
+[2025-04-02 19:24:56,774] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 19:24:56,774] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:24:56,774] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 19:24:56,804] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:24:56,807] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:24:56,812] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:24:56,812] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:24:56,814] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 19:24:56,837] - INFO - data_validation - Performing data validation
+[2025-04-02 19:24:56,840] - INFO - data_validation - Column validation passed
+[2025-04-02 19:24:56,841] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 19:24:56,841] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:24:56,841] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 19:24:56,842] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:24:56,847] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:24:56,849] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:24:56,857] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:24:56,857] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 19:24:56,857] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 19:24:56,862] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 19:24:56,867] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 19:24:56,871] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 19:24:56,893] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 19:24:56,894] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 19:24:56,899] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 19:24:56,899] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 19:24:56,900] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:24:56,900] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 19:24:56,904] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:24:56,904] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:24:56,904] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:24:56,904] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:24:56,904] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 19:24:56,904] - ERROR - main - "'ConfigBox' object has no attribute 'target_column'"
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 73, in <module>
+    obj.initiate_model_trainer()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\model_trainer_pipeline.py", line 28, in initiate_model_trainer
+    model_trainer_config = config.get_model_trainer_config()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 114, in get_model_trainer_config
+    target_column=schema.target_column,
+  File "box\\config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'target_column'"
+[2025-04-02 19:26:13,039] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 19:26:13,039] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:26:13,039] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:26:13,039] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:26:13,055] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:26:13,055] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 19:26:14,867] - INFO - data_ingestion - File downloaded successfully: 'artifacts/data_ingestion/data.zip'
+[2025-04-02 19:26:14,870] - DEBUG - data_ingestion - Download headers:
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 2B08:C5DB:1125E6:21E0A0:67ED7D1C
+Accept-Ranges: bytes
+Date: Wed, 02 Apr 2025 18:26:12 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980022-LHR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1743618373.776529,VS0,VE2
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 50e81fde2032e85a830e91c3c6514ec74e87e29f
+Expires: Wed, 02 Apr 2025 18:31:12 GMT
+Source-Age: 78
+
+
+[2025-04-02 19:26:14,881] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 19:26:14,881] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:26:14,881] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 19:26:14,890] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:26:14,890] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:26:14,890] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:26:14,890] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:26:14,890] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 19:26:14,905] - INFO - data_validation - Performing data validation
+[2025-04-02 19:26:14,905] - INFO - data_validation - Column validation passed
+[2025-04-02 19:26:14,921] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 19:26:14,922] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:26:14,922] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 19:26:14,927] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:26:14,927] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:26:14,936] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:26:14,936] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:26:14,936] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 19:26:14,936] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 19:26:14,943] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 19:26:14,949] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 19:26:14,952] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 19:26:14,956] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 19:26:14,956] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 19:26:14,974] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 19:26:14,974] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 19:26:14,974] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:26:14,974] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 19:26:14,986] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:26:14,989] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:26:14,993] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:26:14,994] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:26:14,995] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 19:26:14,996] - ERROR - main - "'ConfigBox' object has no attribute 'target_column'"
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 633, in box.box.Box.__getattr__
+  File "box\\box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'target_column'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box\\box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'target_column'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\MyProjects\pilotproject\main.py", line 73, in <module>
+    obj.initiate_model_trainer()
+  File "E:\MyProjects\pilotproject\src\pilotproject\pipeline\model_trainer_pipeline.py", line 28, in initiate_model_trainer
+    model_trainer_config = config.get_model_trainer_config()
+  File "E:\MyProjects\pilotproject\src\pilotproject\config\configuration.py", line 114, in get_model_trainer_config
+    target_column=schema.target_column,
+  File "box\\config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box\\box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'target_column'"
+[2025-04-02 19:37:44,654] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 19:37:44,654] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:37:44,670] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:37:44,671] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:37:44,672] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:37:44,672] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 19:37:44,673] - INFO - data_ingestion - File already exists at: 'artifacts/data_ingestion/data.zip' — skipping download
+[2025-04-02 19:37:44,675] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 19:37:44,675] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:37:44,675] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 19:37:44,679] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:37:44,680] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:37:44,682] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:37:44,683] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:37:44,683] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 19:37:44,710] - INFO - data_validation - Performing data validation
+[2025-04-02 19:37:44,710] - INFO - data_validation - Column validation passed
+[2025-04-02 19:37:44,711] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 19:37:44,711] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:37:44,711] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 19:37:44,713] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:37:44,713] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:37:44,713] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:37:44,713] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:37:44,713] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 19:37:44,713] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 19:37:44,713] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 19:37:44,713] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 19:37:44,713] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 19:37:44,731] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 19:37:44,731] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 19:37:44,733] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 19:37:44,737] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 19:37:44,737] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:37:44,740] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 19:37:44,742] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:37:44,743] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:37:44,745] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:37:44,745] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:37:44,745] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 19:37:44,747] - INFO - model_trainer - Reading training data
+[2025-04-02 19:37:44,763] - INFO - model_trainer - Reading test data
+[2025-04-02 19:37:44,774] - INFO - model_trainer - Extracting features and target from training data
+[2025-04-02 19:37:44,774] - INFO - model_trainer - Training ElasticNet model with alpha=0.2, l1_ratio=0.1
+[2025-04-02 19:37:44,780] - INFO - model_trainer - Model training completed
+[2025-04-02 19:37:44,780] - INFO - model_trainer - Trained model saved to: 'artifacts/model_trainer\model.joblib'
+[2025-04-02 19:37:44,780] - INFO - main - >>>>>> Stage: Model Trainer Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:37:44,780] - INFO - main - >>>>>> Stage: Model Evaluation Stage started <<<<<<
+[2025-04-02 19:37:44,784] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:37:44,784] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:37:44,784] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:37:44,784] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:37:44,784] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-02 19:37:44,790] - INFO - model_evaluation - Loaded test dataset
+[2025-04-02 19:37:44,801] - INFO - model_evaluation - Loaded trained model from disk
+[2025-04-02 19:37:44,801] - INFO - model_evaluation - Starting MLflow run
+[2025-04-02 19:37:46,718] - INFO - model_evaluation - Generated evaluation metrics
+[2025-04-02 19:37:46,721] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-02 19:37:46,722] - INFO - model_evaluation - Saved test metrics to: 'artifacts/model_evaluation/metrics.json'
+[2025-04-02 19:37:47,309] - INFO - model_evaluation - Logged model parameters to MLflow
+[2025-04-02 19:37:47,613] - INFO - model_evaluation - Logged test metrics to MLflow
+[2025-04-02 19:37:47,613] - INFO - model_evaluation - MLflow tracking URI type: 'https'
+[2025-04-02 19:38:02,391] - INFO - main - >>>>>> Stage: Model Evaluation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:38:54,966] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:38:54,966] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:38:54,966] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:38:54,966] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:38:54,966] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 19:40:22,966] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 19:40:22,969] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:40:22,971] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:40:22,972] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:40:22,972] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:40:22,972] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 19:40:22,972] - INFO - data_ingestion - File already exists at: 'artifacts/data_ingestion/data.zip' — skipping download
+[2025-04-02 19:40:22,975] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 19:40:22,975] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:40:22,975] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 19:40:22,975] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:40:22,975] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:40:22,975] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:40:22,975] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:40:22,975] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 19:40:23,048] - INFO - data_validation - Performing data validation
+[2025-04-02 19:40:23,049] - INFO - data_validation - Column validation passed
+[2025-04-02 19:40:23,050] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 19:40:23,050] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:40:23,050] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 19:40:23,067] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:40:23,069] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:40:23,072] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:40:23,074] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:40:23,075] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 19:40:23,080] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 19:40:23,086] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 19:40:23,093] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 19:40:23,096] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 19:40:23,111] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 19:40:23,113] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 19:40:23,116] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 19:40:23,117] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 19:40:23,118] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:40:23,119] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 19:40:23,126] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:40:23,126] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:40:23,130] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:40:23,130] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:40:23,130] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 19:40:23,130] - INFO - model_trainer - Reading training data
+[2025-04-02 19:40:23,155] - INFO - model_trainer - Reading test data
+[2025-04-02 19:40:23,177] - INFO - model_trainer - Extracting features and target from training data
+[2025-04-02 19:40:23,179] - INFO - model_trainer - Training ElasticNet model with alpha=0.2, l1_ratio=0.1
+[2025-04-02 19:40:23,187] - INFO - model_trainer - Model training completed
+[2025-04-02 19:40:23,190] - INFO - model_trainer - Trained model saved to: 'artifacts/model_trainer\model.joblib'
+[2025-04-02 19:40:23,191] - INFO - main - >>>>>> Stage: Model Trainer Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:40:23,192] - INFO - main - >>>>>> Stage: Model Evaluation Stage started <<<<<<
+[2025-04-02 19:40:23,201] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:40:23,212] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:40:23,217] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:40:23,217] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:40:23,217] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-02 19:40:23,224] - INFO - model_evaluation - Loaded test dataset
+[2025-04-02 19:40:23,230] - INFO - model_evaluation - Loaded trained model from disk
+[2025-04-02 19:40:23,230] - INFO - model_evaluation - Starting MLflow run
+[2025-04-02 19:40:25,105] - INFO - model_evaluation - Generated evaluation metrics
+[2025-04-02 19:40:25,107] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-02 19:40:25,108] - INFO - model_evaluation - Saved test metrics to: 'artifacts/model_evaluation/metrics.json'
+[2025-04-02 19:40:25,350] - INFO - model_evaluation - Logged model parameters to MLflow
+[2025-04-02 19:40:25,818] - INFO - model_evaluation - Logged test metrics to MLflow
+[2025-04-02 19:40:25,818] - INFO - model_evaluation - MLflow tracking URI type: 'https'
+[2025-04-02 19:40:37,206] - INFO - main - >>>>>> Stage: Model Evaluation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 19:41:05,020] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 19:41:05,024] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 19:41:05,028] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 19:41:05,028] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 19:41:05,030] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 19:41:05,031] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:41:27,250] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:41:27,255] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:41:27,263] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:41:27,263] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:41:27,263] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:41:27,272] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:44:27,369] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 21:44:27,371] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:44:27,371] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:44:27,381] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:44:27,381] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:44:27,381] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 21:44:27,381] - INFO - data_ingestion - File already exists at: 'artifacts/data_ingestion/data.zip' — skipping download
+[2025-04-02 21:44:27,385] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 21:44:27,389] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 21:44:27,389] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 21:44:27,393] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:44:27,393] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:44:27,393] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:44:27,402] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:44:27,402] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 21:44:27,438] - INFO - data_validation - Performing data validation
+[2025-04-02 21:44:27,438] - INFO - data_validation - Column validation passed
+[2025-04-02 21:44:27,450] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 21:44:27,450] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 21:44:27,450] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 21:44:27,464] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:44:27,471] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:44:27,476] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:44:27,478] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:44:27,480] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 21:44:27,482] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 21:44:27,484] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 21:44:27,494] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 21:44:27,498] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 21:44:27,522] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 21:44:27,526] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 21:44:27,531] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 21:44:27,535] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 21:44:27,535] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 21:44:27,535] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 21:44:27,535] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:44:27,535] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:44:27,546] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:44:27,546] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:44:27,546] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 21:44:27,546] - INFO - model_trainer - Reading training data
+[2025-04-02 21:44:27,567] - INFO - model_trainer - Reading test data
+[2025-04-02 21:44:27,601] - INFO - model_trainer - Extracting features and target from training data
+[2025-04-02 21:44:27,601] - INFO - model_trainer - Training ElasticNet model with alpha=0.2, l1_ratio=0.1
+[2025-04-02 21:44:27,607] - INFO - model_trainer - Model training completed
+[2025-04-02 21:44:27,609] - INFO - model_trainer - Trained model saved to: 'artifacts/model_trainer\model.joblib'
+[2025-04-02 21:44:27,609] - INFO - main - >>>>>> Stage: Model Trainer Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 21:44:27,609] - INFO - main - >>>>>> Stage: Model Evaluation Stage started <<<<<<
+[2025-04-02 21:44:27,614] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:44:27,614] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:44:27,621] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:44:27,621] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:44:27,621] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-02 21:44:27,628] - INFO - model_evaluation - Loaded test dataset
+[2025-04-02 21:44:27,628] - INFO - model_evaluation - Loaded trained model from disk
+[2025-04-02 21:44:27,628] - INFO - model_evaluation - Starting MLflow run
+[2025-04-02 21:44:30,145] - INFO - model_evaluation - Generated evaluation metrics
+[2025-04-02 21:44:30,147] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-02 21:44:30,147] - INFO - model_evaluation - Saved test metrics to: 'artifacts/model_evaluation/metrics.json'
+[2025-04-02 21:44:30,428] - INFO - model_evaluation - Logged model parameters to MLflow
+[2025-04-02 21:44:30,715] - INFO - model_evaluation - Logged test metrics to MLflow
+[2025-04-02 21:44:30,715] - INFO - model_evaluation - MLflow tracking URI type: 'https'
+[2025-04-02 21:44:45,487] - INFO - main - >>>>>> Stage: Model Evaluation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 21:45:31,535] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:45:31,540] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:45:31,543] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:45:31,547] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:45:31,547] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:45:31,550] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:48:18,802] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:48:18,802] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:48:18,813] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:48:18,816] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:48:18,816] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:48:18,820] - INFO - model_prediction - self.config.columns.keys()
+[2025-04-02 21:48:18,821] - INFO - model_prediction - self.config.target_column.keys()
+[2025-04-02 21:48:18,821] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:49:22,988] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:49:22,988] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:49:22,999] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:49:23,000] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:49:23,000] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:49:23,003] - INFO - model_prediction - dict_keys(['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality'])
+[2025-04-02 21:49:23,003] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:50:44,656] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:50:44,663] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:50:44,689] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:50:44,701] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:50:44,712] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:50:44,715] - INFO - model_prediction - all_columns: dict_keys(['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality'])
+[2025-04-02 21:50:44,718] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:51:31,103] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:51:31,105] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:51:31,116] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:51:31,120] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:51:31,122] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:51:31,122] - INFO - model_prediction - all_columns: dict_keys(['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality'])
+[2025-04-02 21:51:31,124] - INFO - model_prediction - target_column: quality
+[2025-04-02 21:51:31,124] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:52:34,069] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:52:34,073] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:52:34,078] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:52:34,079] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:52:34,079] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:52:34,079] - INFO - model_prediction - all_columns: ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 21:52:34,082] - INFO - model_prediction - target_column: quality
+[2025-04-02 21:52:34,083] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:53:14,635] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:53:14,643] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:53:14,650] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:53:14,652] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:53:14,654] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:53:14,654] - INFO - model_prediction - all_columns: ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 21:53:14,654] - INFO - model_prediction - target_column: quality
+[2025-04-02 21:53:14,657] - ERROR - model_prediction - An error occurred during prediction: 'str' object has no attribute 'keys'
+[2025-04-02 21:53:36,468] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:53:36,471] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:53:36,475] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:53:36,477] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:53:36,478] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:53:36,478] - INFO - model_prediction - all_columns: ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 21:53:36,478] - INFO - model_prediction - target_column: quality
+[2025-04-02 21:53:36,480] - INFO - model_prediction - Loading model from path
+[2025-04-02 21:53:37,977] - INFO - model_prediction - Generating predictions
+[2025-04-02 21:53:38,044] - ERROR - model_prediction - An error occurred during prediction: Shape of passed values is (1, 11), indices imply (1, 12)
+[2025-04-02 21:54:30,400] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:54:30,406] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:54:30,406] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:54:30,406] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:54:30,413] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:54:30,413] - INFO - model_prediction - all_columns: ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 21:54:30,413] - INFO - model_prediction - target_column: ['q', 'u', 'a', 'l', 'i', 't', 'y']
+[2025-04-02 21:54:30,415] - INFO - model_prediction - Loading model from path
+[2025-04-02 21:54:31,838] - INFO - model_prediction - Generating predictions
+[2025-04-02 21:54:31,841] - ERROR - model_prediction - An error occurred during prediction: Shape of passed values is (1, 11), indices imply (1, 12)
+[2025-04-02 21:57:25,976] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:57:25,984] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:57:25,999] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:57:26,001] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:57:26,006] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:57:26,006] - INFO - model_prediction - target_column: quality
+[2025-04-02 21:57:26,006] - INFO - model_prediction - Loading model from path
+[2025-04-02 21:57:29,459] - INFO - model_prediction - Generating predictions
+[2025-04-02 21:57:29,466] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 21:59:42,775] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 21:59:42,779] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 21:59:42,785] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 21:59:42,788] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 21:59:42,788] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 21:59:42,792] - INFO - model_prediction - target_column: <class 'str'>
+[2025-04-02 21:59:42,792] - INFO - model_prediction - Loading model from path
+[2025-04-02 21:59:44,299] - INFO - model_prediction - Generating predictions
+[2025-04-02 21:59:44,308] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:05:29,404] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:05:29,409] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:05:29,416] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:05:29,421] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:05:29,422] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:05:29,424] - INFO - model_prediction - target_column: <class 'str'>
+[2025-04-02 22:05:29,425] - INFO - model_prediction - target_column: quality
+[2025-04-02 22:05:29,425] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:05:30,761] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:05:30,761] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:10:28,038] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:10:28,038] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:10:28,038] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:10:28,038] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:10:28,047] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:10:28,048] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:10:28,049] - INFO - model_prediction - quality
+[2025-04-02 22:10:28,049] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:10:29,658] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:10:29,666] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:10:55,905] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:10:55,909] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:10:55,911] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:10:55,913] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:10:55,915] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:10:55,915] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:10:55,915] - INFO - model_prediction - ['q', 'u', 'a', 'l', 'i', 't', 'y']
+[2025-04-02 22:10:55,917] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:10:57,355] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:10:57,355] - ERROR - model_prediction - An error occurred during prediction: Shape of passed values is (1, 11), indices imply (1, 12)
+[2025-04-02 22:11:22,185] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:11:22,197] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:11:22,203] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:11:22,206] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:11:22,209] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:11:22,209] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:11:22,209] - INFO - model_prediction - ['q', 'u', 'a', 'l', 'i', 't', 'y']
+[2025-04-02 22:11:22,209] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:11:23,956] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:11:23,961] - ERROR - model_prediction - An error occurred during prediction: Shape of passed values is (1, 11), indices imply (1, 12)
+[2025-04-02 22:12:10,807] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:12:10,822] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:12:10,828] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:12:10,830] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:12:10,832] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:12:10,835] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:12:10,836] - INFO - model_prediction - quality
+[2025-04-02 22:12:10,836] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:12:12,154] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:12:12,158] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:16:45,925] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:16:45,929] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:16:45,933] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:16:45,933] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:16:45,937] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:16:45,937] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:16:45,939] - INFO - model_prediction - quality
+[2025-04-02 22:16:45,939] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:16:47,208] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:16:47,208] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol']
+[2025-04-02 22:16:47,208] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:25:15,378] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:25:15,378] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:25:15,383] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:25:15,385] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:25:15,385] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:25:15,385] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:25:15,385] - INFO - model_prediction - quality
+[2025-04-02 22:25:15,385] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:25:16,976] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:25:16,981] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:25:40,911] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:25:40,916] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:25:40,925] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:25:40,925] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:25:40,925] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:25:40,925] - INFO - model_prediction - ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+[2025-04-02 22:25:40,925] - INFO - model_prediction - quality
+[2025-04-02 22:25:40,933] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:25:43,855] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:25:43,872] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:27:47,395] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:27:47,406] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:27:47,406] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:27:47,415] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:27:47,418] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:27:47,418] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:27:50,569] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:27:50,579] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:31:01,684] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:31:01,690] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:31:01,700] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:31:01,704] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:31:01,706] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:31:01,706] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:31:01,712] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:31:01,719] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:32:18,060] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 22:32:18,065] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:32:18,065] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:32:18,074] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:32:18,074] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:32:18,074] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 22:32:21,301] - INFO - data_ingestion - File downloaded successfully: 'artifacts/data_ingestion/data.zip'
+[2025-04-02 22:32:21,306] - DEBUG - data_ingestion - Download headers:
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 2A30:08BC:FA8C3:200BAB:67EDACE1
+Accept-Ranges: bytes
+Date: Wed, 02 Apr 2025 21:32:18 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980085-LHR
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1743629538.428037,VS0,VE159
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 2f86032208545368c4d0a8ddf95c3b7c014a7f4a
+Expires: Wed, 02 Apr 2025 21:37:18 GMT
+Source-Age: 0
+
+
+[2025-04-02 22:32:21,354] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 22:32:21,354] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:32:21,364] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 22:32:21,380] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:32:21,380] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:32:21,380] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:32:21,396] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:32:21,396] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 22:32:21,428] - INFO - data_validation - Performing data validation
+[2025-04-02 22:32:21,428] - INFO - data_validation - Column validation passed
+[2025-04-02 22:32:21,448] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 22:32:21,448] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:32:21,448] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 22:32:21,459] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:32:21,475] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:32:21,484] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:32:21,484] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:32:21,488] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 22:32:21,490] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 22:32:21,494] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 22:32:21,506] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 22:32:21,513] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 22:32:21,538] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 22:32:21,554] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 22:32:21,554] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 22:32:21,570] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 22:32:21,570] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:32:21,570] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 22:32:21,585] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:32:21,585] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:32:21,601] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:32:21,601] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:32:21,618] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 22:32:21,618] - INFO - model_trainer - Reading training data
+[2025-04-02 22:32:21,649] - INFO - model_trainer - Reading test data
+[2025-04-02 22:32:21,681] - INFO - model_trainer - Extracting features and target from training data
+[2025-04-02 22:32:21,681] - INFO - model_trainer - Training ElasticNet model with alpha=0.2, l1_ratio=0.1
+[2025-04-02 22:32:21,697] - INFO - model_trainer - Model training completed
+[2025-04-02 22:32:21,697] - INFO - model_trainer - Trained model saved to: 'artifacts/model_trainer\model.joblib'
+[2025-04-02 22:32:21,697] - INFO - main - >>>>>> Stage: Model Trainer Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:32:21,697] - INFO - main - >>>>>> Stage: Model Evaluation Stage started <<<<<<
+[2025-04-02 22:32:21,728] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:32:21,728] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:32:21,728] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:32:21,744] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:32:21,744] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-02 22:32:21,744] - INFO - model_evaluation - Loaded test dataset
+[2025-04-02 22:32:21,760] - INFO - model_evaluation - Loaded trained model from disk
+[2025-04-02 22:32:21,760] - INFO - model_evaluation - Starting MLflow run
+[2025-04-02 22:32:24,487] - INFO - model_evaluation - Generated evaluation metrics
+[2025-04-02 22:32:24,489] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-02 22:32:24,491] - INFO - model_evaluation - Saved test metrics to: 'artifacts/model_evaluation/metrics.json'
+[2025-04-02 22:32:25,744] - INFO - model_evaluation - Logged model parameters to MLflow
+[2025-04-02 22:32:26,621] - INFO - model_evaluation - Logged test metrics to MLflow
+[2025-04-02 22:32:26,623] - INFO - model_evaluation - MLflow tracking URI type: 'https'
+[2025-04-02 22:32:45,875] - INFO - main - >>>>>> Stage: Model Evaluation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:33:19,187] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:33:19,187] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:33:19,198] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:33:19,198] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:33:19,202] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:33:19,202] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:33:20,316] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:33:20,322] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:37:13,838] - INFO - main - >>>>>> Stage: Data Ingestion Stage started <<<<<<
+[2025-04-02 22:37:13,847] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:37:13,847] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:37:13,855] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:37:13,855] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:37:13,855] - INFO - common - created directory at: 'artifacts/data_ingestion'
+[2025-04-02 22:37:15,239] - INFO - data_ingestion - File downloaded successfully: 'artifacts/data_ingestion/data.zip'
+[2025-04-02 22:37:15,255] - DEBUG - data_ingestion - Download headers:
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 2A30:08BC:FA8C3:200BAB:67EDACE1
+Accept-Ranges: bytes
+Date: Wed, 02 Apr 2025 21:37:13 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lhr-egll1980029-LHR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1743629833.140201,VS0,VE2
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 782c1010d3319dd4de5e95754cd47fa7e65f580f
+Expires: Wed, 02 Apr 2025 21:42:13 GMT
+Source-Age: 295
+
+
+[2025-04-02 22:37:15,301] - INFO - data_ingestion - Extracted 'artifacts/data_ingestion/data.zip' into 'artifacts/data_ingestion'
+[2025-04-02 22:37:15,301] - INFO - main - >>>>>> Stage: Data Ingestion Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:37:15,301] - INFO - main - >>>>>> Stage: Data Validation Stage started <<<<<<
+[2025-04-02 22:37:15,313] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:37:15,313] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:37:15,330] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:37:15,337] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:37:15,337] - INFO - common - created directory at: 'artifacts/data_validation'
+[2025-04-02 22:37:15,369] - INFO - data_validation - Performing data validation
+[2025-04-02 22:37:15,369] - INFO - data_validation - Column validation passed
+[2025-04-02 22:37:15,383] - INFO - data_validation - Writing validation status to file at 'artifacts/data_validation/status.txt'
+[2025-04-02 22:37:15,386] - INFO - main - >>>>>> Stage: Data Validation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:37:15,386] - INFO - main - >>>>>> Stage: Data Transformation Stage started <<<<<<
+[2025-04-02 22:37:15,401] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:37:15,406] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:37:15,410] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:37:15,412] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:37:15,415] - INFO - common - created directory at: 'artifacts/data_transformation'
+[2025-04-02 22:37:15,415] - INFO - data_transformation_pipeline - Checking validation status...
+[2025-04-02 22:37:15,418] - INFO - data_transformation_pipeline - Validation status: 'True' — proceeding with transformation
+[2025-04-02 22:37:15,418] - INFO - data_transformation - Loaded dataset from: 'artifacts/data_ingestion/winequality-red.csv'
+[2025-04-02 22:37:15,418] - INFO - data_transformation - Split data into train and test sets with test_size=0.25
+[2025-04-02 22:37:15,451] - INFO - data_transformation - Training dataset saved at: 'artifacts/data_transformation\train.csv'
+[2025-04-02 22:37:15,451] - INFO - data_transformation - Training data shape: (1199, 12)
+[2025-04-02 22:37:15,466] - INFO - data_transformation - Testing dataset saved at: 'artifacts/data_transformation\test.csv'
+[2025-04-02 22:37:15,467] - INFO - data_transformation - Testing data shape: (400, 12)
+[2025-04-02 22:37:15,470] - INFO - main - >>>>>> Stage: Data Transformation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:37:15,470] - INFO - main - >>>>>> Stage: Model Trainer Stage started <<<<<<
+[2025-04-02 22:37:15,481] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:37:15,481] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:37:15,486] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:37:15,488] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:37:15,489] - INFO - common - created directory at: 'artifacts/model_trainer'
+[2025-04-02 22:37:15,489] - INFO - model_trainer - Reading training data
+[2025-04-02 22:37:15,518] - INFO - model_trainer - Reading test data
+[2025-04-02 22:37:15,555] - INFO - model_trainer - Extracting features and target from training data
+[2025-04-02 22:37:15,564] - INFO - model_trainer - Training ElasticNet model with alpha=0.2, l1_ratio=0.1
+[2025-04-02 22:37:15,568] - INFO - model_trainer - Model training completed
+[2025-04-02 22:37:15,571] - INFO - model_trainer - Trained model saved to: 'artifacts/model_trainer\model.joblib'
+[2025-04-02 22:37:15,571] - INFO - main - >>>>>> Stage: Model Trainer Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:37:15,571] - INFO - main - >>>>>> Stage: Model Evaluation Stage started <<<<<<
+[2025-04-02 22:37:15,593] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:37:15,596] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:37:15,596] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:37:15,602] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:37:15,602] - INFO - common - created directory at: 'artifacts/model_evaluation'
+[2025-04-02 22:37:15,606] - INFO - model_evaluation - Loaded test dataset
+[2025-04-02 22:37:15,612] - INFO - model_evaluation - Loaded trained model from disk
+[2025-04-02 22:37:15,618] - INFO - model_evaluation - Starting MLflow run
+[2025-04-02 22:37:17,868] - INFO - model_evaluation - Generated evaluation metrics
+[2025-04-02 22:37:17,868] - INFO - common - JSON file saved at: 'artifacts\model_evaluation\metrics.json'
+[2025-04-02 22:37:17,873] - INFO - model_evaluation - Saved test metrics to: 'artifacts/model_evaluation/metrics.json'
+[2025-04-02 22:37:18,565] - INFO - model_evaluation - Logged model parameters to MLflow
+[2025-04-02 22:37:19,074] - INFO - model_evaluation - Logged test metrics to MLflow
+[2025-04-02 22:37:19,077] - INFO - model_evaluation - MLflow tracking URI type: 'https'
+[2025-04-02 22:37:39,032] - INFO - main - >>>>>> Stage: Model Evaluation Stage completed <<<<<<
+xxxxxxxxxx
+[2025-04-02 22:38:15,924] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:38:15,932] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:38:15,939] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:38:15,939] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:38:15,953] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:38:15,957] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:38:18,583] - INFO - common - yaml file: 'config\config.yaml' loaded successfully
+[2025-04-02 22:38:18,596] - INFO - common - yaml file: 'params.yaml' loaded successfully
+[2025-04-02 22:38:18,616] - INFO - common - yaml file: 'schema.yaml' loaded successfully
+[2025-04-02 22:38:18,619] - INFO - common - created directory at: 'artifacts'
+[2025-04-02 22:38:18,643] - INFO - common - created directory at: 'artifacts/model_prediction'
+[2025-04-02 22:38:18,644] - INFO - model_prediction - Loading model from path
+[2025-04-02 22:38:19,580] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:38:19,580] - INFO - model_prediction - Generating predictions
+[2025-04-02 22:38:19,588] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
+[2025-04-02 22:38:19,613] - INFO - model_prediction - Writing predictions to: 'artifacts\model_prediction\predictions.csv'
