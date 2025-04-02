@@ -37,7 +37,7 @@ class ModelPrediction:
         # Now assign the predictions as a new column
         data_with_predictions['prediction'] = prediction
 
-        logger.info("Write prediction to file path: '{predictions_file_path}'")
+        logger.info(f"Write prediction to file path: '{predictions_file_path}'")
         if Path(predictions_file_path).exists():
             data_with_predictions.to_csv(Path(predictions_file_path), mode='a', header=False, index=False)
         else:
