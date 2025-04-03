@@ -41,7 +41,7 @@ The model uses the **Wine Quality Dataset** from the UCI Machine Learning Reposi
 
 ### 1. 📦 Clone the repo & install dependencies
 
-git clone https://github.com/your-username/pilotproject.git
+git clone https://github.com/megokul/pilotproject.git
 cd pilotproject
 pip install -r requirements.txt
 2. ⚙️ Update config files
@@ -117,16 +117,3 @@ Wine dataset © UCI ML Repo
 ⭐ Credits
 Made with ❤️ by Gokul.
 Inspired by best practices in MLOps and clean architecture.
-
-
-### ✅ Next Steps:
-- Add a `requirements.txt` if not already present (want help auto-generating it?)
-- Add sample notebook(s) under `notebooks/`
-- Upload to GitHub with a good commit history and tags like `v1.0.0`
-
-Would you like me to:
-- Generate the README as a file?
-- Help generate your `requirements.txt`?
-- Add badges (build status, license, etc.)?
-
-Let me know!
