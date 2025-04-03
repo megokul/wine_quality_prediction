@@ -1,5 +1,3 @@
-✅ README.md Template for Your ML Project
-
 # 🧠 Wine Quality Prediction Pipeline 🍷
 
 A modular, production-ready machine learning pipeline that predicts wine quality based on physicochemical tests. Built with Python, scikit-learn, and follows clean architecture principles using config-driven orchestration and modular components.
