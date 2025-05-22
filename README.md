@@ -1,117 +1,38 @@
-# 🧠 Wine Quality Prediction Pipeline 🍷
+# 🍷 PilotProject: Wine Quality Prediction ML Pipeline
 
-A modular, production-ready machine learning pipeline that predicts wine quality based on physicochemical tests. Built with Python, scikit-learn, and follows clean architecture principles using config-driven orchestration and modular components.
+**End-to-end Machine Learning pipeline for predicting wine quality**, built with production-ready engineering practices.
 
+This project features modular ML components, experiment tracking with MLflow, and a Flask-based UI for real-time inference.
 
-## 🚀 Project Structure
+---
 
-pilotproject/ │ ├── config/ # Configuration YAMLs │ ├── config.yaml │ ├── params.yaml │ └── schema.yaml │ ├── src/pilotproject/ # Source code │ ├── components/ # Core pipeline components │ ├── config/ # Configuration loading │ ├── entity/ # Config entities (data classes) │ ├── pipeline/ # Pipeline triggers │ ├── utils/ # Utility functions │ └── init.py │ ├── artifacts/ # Stores models, transformed data, logs │ ├── notebooks/ # Jupyter notebooks for exploration │ ├── main.py # Entry point ├── requirements.txt └── README.md
+## 🧰 Tech Stack Used
 
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Web_App-lightgrey?logo=flask)
+![scikit-learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikit-learn)
+![MLflow](https://img.shields.io/badge/MLflow-Tracking-blue?logo=mlflow)
+![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?logo=docker&logoColor=white)
+![YAML](https://img.shields.io/badge/YAML-Config-F4D03F?logo=yaml&logoColor=black)
+![Pandas](https://img.shields.io/badge/Pandas-Data_Handling-150458?logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-Math-blueviolet?logo=numpy)
+![Git](https://img.shields.io/badge/Git-Version_Control-F05032?logo=git&logoColor=white)
+![VSCode](https://img.shields.io/badge/VS_Code-Editor-007ACC?logo=visual-studio-code)
 
-## ⚙️ Features
+---
 
-- 🔄 **End-to-End ML Pipeline** with separate stages:
-  - Data Ingestion
-  - Data Validation
-  - Data Transformation
-  - Model Training (ElasticNet)
-  - Model Evaluation (with MLflow support)
-  - Model Prediction
+## 🚀 Features
 
-- 🧾 **Config-driven** using `config.yaml`, `params.yaml`, and `schema.yaml`
+- ✅ Modular pipeline architecture with CLI and UI interfaces
+- ✅ YAML-based configuration for easy customization
+- ✅ Data validation with schema enforcement
+- ✅ ElasticNet regression model with configurable parameters
+- ✅ MLflow tracking for metrics, parameters, and models
+- ✅ Flask web UI with `/train` and `/predict` endpoints
+- ✅ Docker support for containerized deployment
+- ✅ Logs, metrics, and predictions are persisted
 
-- ✅ **Schema validation** to ensure clean and consistent input
+---
 
-- 🧪 **Testable and Modular Design** with reusable components
+## 📁 Project Structure
 
-- 📦 **Logging & Artifacts**: All intermediate outputs and models are logged and saved for reproducibility
-
-
-## 📊 Dataset
-
-The model uses the **Wine Quality Dataset** from the UCI Machine Learning Repository:
-- Predicts wine quality (0–10) based on chemical tests.
-- Columns include:
-  - `fixed acidity`, `volatile acidity`, `citric acid`, `residual sugar`, `chlorides`, etc.
-
-
-## 🧪 How to Run the Pipeline
-
-### 1. 📦 Clone the repo & install dependencies
-
-git clone https://github.com/megokul/pilotproject.git
-cd pilotproject
-pip install -r requirements.txt
-2. ⚙️ Update config files
-Edit config/config.yaml, params.yaml, and schema.yaml based on your dataset path or training preferences.
-
-3. ▶️ Run pipeline stages
-You can run the full pipeline or trigger specific stages:
-
-python main.py
-Each stage like ingestion, transformation, training, etc. is modularized in the src/pilotproject/pipeline directory.
-
-🧠 Model Info
-Model Used: ElasticNet Regression
-
-Evaluation Metrics: R² Score, MAE, MSE
-
-Tracking: Can be integrated with MLflow for experiment tracking
-
-📁 Output Artifacts
-✅ Cleaned & validated data
-
-✅ Transformed features (scaled, encoded)
-
-✅ Trained model (.pkl file)
-
-✅ Evaluation report with metrics
-
-✅ CSV file with predictions
-
-🧰 Tools & Tech Stack
-Python 3.10+
-
-scikit-learn
-
-pandas / numpy
-
-PyYAML
-
-joblib
-
-MLflow (optional)
-
-Git / GitHub
-
-🗂️ Configuration Files
-config.yaml → Controls pipeline paths and toggles
-
-params.yaml → Hyperparameters (e.g., ElasticNet alpha, l1_ratio)
-
-schema.yaml → Schema validation for input features
-
-📈 Sample Prediction Output
-
-fixed acidity,volatile acidity,citric acid,...,alcohol,prediction
-7.4,0.70,0.00,...,9.4,5.8
-6.3,0.65,0.20,...,10.0,6.3
-
-
-🤝 Contribution
-PRs and suggestions are welcome!
-Make sure to:
-
-Format your code with black
-
-Write modular and testable components
-
-Include meaningful logging
-
-📜 License
-MIT License © Gokul
-Wine dataset © UCI ML Repo
-
-⭐ Credits
-Made with ❤️ by Gokul.
-Inspired by best practices in MLOps and clean architecture.
