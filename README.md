@@ -36,3 +36,30 @@ This project features modular ML components, experiment tracking with MLflow, an
 
 ## 📁 Project Structure
 
+📦 pilotproject/
+├── 📄 app.py # Flask app with /train and /predict
+├── 📄 main.py # Pipeline entry point
+├── 📁 config/
+│ └── 📄 config.yaml # Path and pipeline configuration
+├── 📄 params.yaml # Model hyperparameters
+├── 📄 schema.yaml # Input data schema
+├── 📁 src/
+│ └── 📁 pilotproject/
+│ ├── 📁 components/ # ML logic (ingestion, transform, train, etc.)
+│ ├── 📁 pipeline/ # Orchestrators for each ML stage
+│ ├── 📁 config/ # Configuration manager
+│ ├── 📁 entity/ # Dataclass-based config entities
+│ ├── 📁 utils/ # Helpers (YAML, JSON, file I/O)
+│ └── 📁 constants/ # Constant paths to YAML files
+├── 📁 templates/
+│ ├── 📄 index.html # Home page form
+│ └── 📄 results.html # Prediction output page
+├── 📁 artifacts/ # All generated outputs (raw, processed, model)
+├── 📁 mlruns/ # MLflow experiment logs
+├── 📁 logs/ # Runtime logs (pipeline + Flask)
+├── 📄 requirements.txt # Python dependencies
+├── 📄 Dockerfile # Containerization instructions
+└── 📄 setup.py # Project packaging script
+
+Copy
+Edit
