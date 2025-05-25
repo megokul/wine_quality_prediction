@@ -66,6 +66,23 @@ wine_quality_prediction/
 
 ---
 
+## 🔄 ML Pipeline Flowchart
+
+Below is a visual overview of the full machine learning workflow:
+
+![ML Pipeline Flowchart](assets/pipeline_flowchart.png)
+
+Each stage includes:
+
+* **Ingestion**: Downloads and extracts dataset from a remote URL
+* **Validation**: Ensures schema conformity and logs validation status
+* **Transformation**: Splits data into train/test and applies preprocessing
+* **Training**: Fits an ElasticNet model using configured hyperparameters
+* **Evaluation**: Computes RMSE, MAE, R², and logs everything to MLflow
+* **Prediction**: Uses trained model to return predictions via Flask UI
+
+---
+
 ## ⚙️ Configuration
 
 All configuration is handled through YAML and `.env` files for clean, flexible pipeline control.
