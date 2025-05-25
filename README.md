@@ -84,3 +84,6 @@ All configuration is handled through YAML and `.env` files for clean, flexible p
   `schema.yaml`
 
 - Configure MLflow tracking URI and other secrets via `.env` file:
+
+```dotenv
+MLFLOW_TRACKING_URI=<your-mlflow-uri>
