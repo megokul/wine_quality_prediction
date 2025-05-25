@@ -66,3 +66,21 @@ pilotproject/
     ├── entity/               # Dataclasses for configs
     ├── constants/            # Path constants
     └── utils/                # Common utilities
+
+```
+---
+
+## ⚙️ Configuration
+
+All configuration is handled through YAML and `.env` files for clean, flexible pipeline control.
+
+- Edit dataset paths, output directories, and URLs in:  
+  `config/config.yaml`
+
+- Set model hyperparameters like `alpha`, `l1_ratio` in:  
+  `params.yaml`
+
+- Define schema (column names and data types) in:  
+  `schema.yaml`
+
+- Configure MLflow tracking URI and other secrets via `.env` file:
