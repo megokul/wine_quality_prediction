@@ -1,0 +1,533 @@
+
+📦 Project Structure of: E:\MyProjects\pilotproject
+
+📄 .env
+📄 .gitignore
+📄 Dockerfile
+📄 LICENSE
+📄 README.md
+📄 app.py
+📁 artifacts/
+    📁 data_ingestion/
+        📄 data.zip
+        📄 winequality-red.csv
+    📁 data_transformation/
+        📄 test.csv
+        📄 train.csv
+    📁 data_validation/
+        📄 status.txt
+    📁 model_evaluation/
+        📄 metrics.json
+    📁 model_prediction/
+        📄 predictions.csv
+    📁 model_trainer/
+        📄 model.joblib
+📁 config/
+    📄 config.yaml
+📁 datasets/
+    📄 winequality-data.zip
+📁 logs/
+    📄 app_logs.log
+    📄 directorygen_logs.log
+📄 main.py
+📁 mlruns/
+    📁 .trash/
+    📁 0/
+        📁 77e0764d77204ebaa86744e1a41e45c8/
+            📁 artifacts/
+                📁 model/
+                    📄 MLmodel
+                    📄 conda.yaml
+                    📄 input_example.json
+                    📄 model.pkl
+                    📄 python_env.yaml
+                    📄 requirements.txt
+                    📄 serving_input_example.json
+        📁 99b9d6ed1b854f829f537fb9adc1f361/
+            📁 artifacts/
+                📁 model/
+                    📄 MLmodel
+                    📄 conda.yaml
+                    📄 input_example.json
+                    📄 model.pkl
+                    📄 python_env.yaml
+                    📄 requirements.txt
+                    📄 serving_input_example.json
+        📁 ed0b7f8679184abcaceb9f320580eac1/
+            📁 artifacts/
+📄 params.yaml
+📄 print_structure.py
+📄 project_dump.py
+📄 project_template.py
+📄 requirements.txt
+📁 research/
+    📄 data_ingestion.ipynb
+    📄 data_validation.ipynb
+    📄 model_evaluation.ipynb
+    📄 research.ipynb
+📄 schema.yaml
+📄 setup.py
+📁 src/
+    📁 pilotproject/
+        📄 __init__.py
+        📁 components/
+            📄 __init__.py
+            📄 data_ingestion.py
+            📄 data_transformation.py
+            📄 data_validation.py
+            📄 model_evaluation.py
+            📄 model_prediction.py
+            📄 model_trainer.py
+        📁 config/
+            📄 __init__.py
+            📄 configuration.py
+        📁 constants/
+            📄 __init__.py
+        📁 entity/
+            📄 __init__.py
+            📄 config_entity.py
+        📁 pipeline/
+            📄 __init__.py
+            📄 data_ingestion_pipeline.py
+            📄 data_transformation_pipeline.py
+            📄 data_validation_pipeline.py
+            📄 model_evaluation_pipeline.py
+            📄 model_trainer_pipeline.py
+            📄 prediction_pipeline.py
+        📁 utils/
+            📄 __init__.py
+            📄 common.py
+📁 templates/
+    📄 index.html
+    📄 results.html
+
+--- CODE DUMP | PART 3 of 3 ---
+
+
+================================================================================
+# PY FILE: src\pilotproject\pipeline\data_validation_pipeline.py
+================================================================================
+
+from src.pilotproject.components.data_validation import DataValidation
+from src.pilotproject.config.configuration import ConfigurationManager
+from src.pilotproject import logger
+
+STAGE_NAME = "Data Validation Stage"
+
+class DataValidationPipeline:
+    """
+    Orchestrates the data validation stage of the pipeline.
+
+    Responsibilities:
+    - Loads validation configuration.
+    - Executes schema validation on the raw dataset.
+    """
+
+    def __init__(self):
+        pass
+
+    def initiate_data_validation(self):
+        """
+        Executes the data validation workflow:
+        - Retrieves config.
+        - Performs column/schema validation.
+        """
+        config = ConfigurationManager()
+        data_validation_config = config.get_data_validation_config()
+        data_validation = DataValidation(config=data_validation_config)
+        data_validation.validate_all_columns()
+
+
+if __name__ == '__main__':
+    try:
+        logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+        obj = DataValidationPipeline()
+        obj.initiate_data_validation()
+        logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+    except Exception as e:
+        logger.exception(e)
+        raise
+
+================================================================================
+# PY FILE: src\pilotproject\pipeline\model_evaluation_pipeline.py
+================================================================================
+
+from src.pilotproject.config.configuration import ConfigurationManager
+from src.pilotproject.components.model_evaluation import ModelEvaluation
+from src.pilotproject import logger
+
+STAGE_NAME = "Model Evaluation Stage"
+
+class ModelEvaluationPipeline:
+    """
+    Orchestrates the model evaluation stage of the pipeline.
+
+    Responsibilities:
+    - Loads model evaluation configuration.
+    - Evaluates the model using test data.
+    - Logs metrics and model using MLflow.
+    """
+
+    def __init__(self):
+        pass
+
+    def initiate_model_evaluation(self):
+        """
+        Executes the model evaluation workflow:
+        - Loads test data and trained model.
+        - Computes evaluation metrics.
+        - Logs parameters, metrics, and model to MLflow.
+        """
+        config = ConfigurationManager()
+        model_evaluation_config = config.get_model_evaluation_config()
+        model_evaluation = ModelEvaluation(model_evaluation_config)
+        model_evaluation.evaluate_log_with_mlflow()
+
+
+if __name__ == '__main__':
+    try:
+        logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+        obj = ModelEvaluationPipeline()
+        obj.initiate_model_evaluation()
+        logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+    except Exception as e:
+        logger.exception(e)
+        raise
+
+================================================================================
+# PY FILE: src\pilotproject\pipeline\model_trainer_pipeline.py
+================================================================================
+
+from src.pilotproject.config.configuration import ConfigurationManager
+from src.pilotproject.components.model_trainer import ModelTrainer
+from src.pilotproject import logger
+
+STAGE_NAME = "Model Trainer Stage"
+
+class ModelTrainerPipeline:
+    """
+    Orchestrates the model training stage of the pipeline.
+
+    Responsibilities:
+    - Loads training configuration and data.
+    - Trains the model using the specified parameters.
+    - Saves the trained model to disk.
+    """
+
+    def __init__(self):
+        pass
+
+    def initiate_model_trainer(self):
+        """
+        Executes the model training workflow:
+        - Retrieves configuration for model training.
+        - Initializes and trains the model.
+        - Saves the trained model file.
+        """
+        config = ConfigurationManager()
+        model_trainer_config = config.get_model_trainer_config()
+        model_trainer = ModelTrainer(model_trainer_config)
+        model_trainer.train()
+
+
+if __name__ == '__main__':
+    try:
+        logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+        obj = ModelTrainerPipeline()
+        obj.initiate_model_trainer()
+        logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+    except Exception as e:
+        logger.exception(e)
+        raise
+
+================================================================================
+# PY FILE: src\pilotproject\pipeline\prediction_pipeline.py
+================================================================================
+
+from src.pilotproject.config.configuration import ConfigurationManager
+from src.pilotproject.components.model_prediction import ModelPrediction
+
+class PredictionPipeline:
+    """
+    Orchestrates the model prediction stage of the pipeline.
+
+    Responsibilities:
+    - Loads model prediction configuration.
+    - Accepts input data and returns predictions.
+    """
+
+    def __init__(self):
+        pass
+
+    def initiate_prediction(self, data) -> list:
+        """
+        Executes the model prediction workflow.
+
+        Parameters:
+            data: Input features to be passed into the trained model for prediction.
+
+        Returns:
+            list: Prediction results generated by the model.
+        """
+        config = ConfigurationManager()
+        model_prediction_config = config.get_model_prediction_config()
+        model_prediction = ModelPrediction(model_prediction_config)
+        prediction = model_prediction.predict(data)
+
+        return prediction
+
+================================================================================
+# PY FILE: src\pilotproject\utils\__init__.py
+================================================================================
+
+
+
+================================================================================
+# PY FILE: src\pilotproject\utils\common.py
+================================================================================
+
+import os
+import yaml
+from src.pilotproject import logger
+import json
+import joblib
+from ensure import ensure_annotations
+from box import ConfigBox
+from pathlib import Path
+from typing import Any
+from box.exceptions import BoxValueError
+
+@ensure_annotations
+def read_yaml(path_to_yaml: Path) -> ConfigBox:
+    """
+    Reads a YAML file and returns its content as a Configbox object.
+
+    Args:
+        path_to_yaml (Path): Path to the YAML file.
+
+    Returns:
+        Configbox: Parsed content of the YAML file.
+
+    Raises:
+        ValueError: If the YAML file is empty.
+        Exception: If any other error occurs during reading the YAML file.
+    """
+    try:
+        with open(path_to_yaml) as yaml_file:  # Open YAML file
+            content = yaml.safe_load(yaml_file)  # Load content safely to prevent code execution
+            logger.info(f"yaml file: '{path_to_yaml}' loaded successfully")  # Log successful loading
+            return ConfigBox(content)  # Convert loaded data to Configbox object for easy access
+    except BoxValueError:
+        raise ValueError("yaml file is empty")  # Handle case where YAML content is empty
+    except Exception as e:
+        raise e  # Propagate other exceptions
+
+
+@ensure_annotations
+def create_directories(*path_to_directories, verbose=True):
+    """
+    Creates directories from the provided list.
+
+    Args:
+        path_to_directories (list): List of directory paths.
+        verbose (bool, optional): Enables logging of created directories. Defaults to True.
+    """
+    for path in path_to_directories:
+        os.makedirs(path, exist_ok=True)  # Create directories, ignoring if they already exist
+        if verbose:
+            logger.info(f"created directory at: '{path}'")  # Log directory creation
+
+
+@ensure_annotations
+def save_json(path: Path, data: dict):
+    """
+    Saves a dictionary to a JSON file.
+
+    Args:
+        path (Path): Path to the output JSON file.
+        data (dict): Dictionary to save.
+    """
+    with open(path, 'w') as file:  # Open file in write mode
+        json.dump(data, file, indent=4)  # Write data as formatted JSON
+
+    logger.info(f"JSON file saved at: '{path}'")  # Log JSON file creation
+
+
+@ensure_annotations
+def load_json(path: Path) -> ConfigBox:
+    """
+    Loads a JSON file and returns its content as a Configbox object.
+
+    Args:
+        path (Path): Path to the JSON file.
+
+    Returns:
+        Configbox: Parsed content of the JSON file.
+    """
+    with open(path) as file:  # Open JSON file
+        content = json.load(file)  # Load JSON content
+
+    logger.info(f"JSON file loaded successfully from: '{path}'")  # Log successful load
+    return ConfigBox(content)  # Convert loaded data to Configbox object
+
+
+@ensure_annotations
+def save_bin(path: Path, data: Any):
+    """
+    Saves a Python object in binary format using joblib.
+
+    Args:
+        path (Path): Path to the binary file.
+        data (Any): Python object to serialize.
+    """
+    joblib.dump(value=data, filename=path)  # Serialize and save the Python object
+    logger.info(f"Binary file saved at: '{path}'")  # Log binary file creation
+
+
+@ensure_annotations
+def load_bin(path: Path) -> Any:
+    """
+    Loads a Python object from a binary file.
+
+    Args:
+        path (Path): Path to the binary file.
+
+    Returns:
+        Any: Python object loaded from the binary file.
+    """
+    data = joblib.load(path)  # Load Python object from binary file
+    logger.info(f"Binary file loaded from: '{path}'")  # Log successful load
+    return data
+
+================================================================================
+# YAML FILE: config\config.yaml
+================================================================================
+
+# ==============================
+# Project Artifacts Root
+# ==============================
+
+# Directory where all pipeline-related outputs will be saved
+artifacts_root: artifacts
+
+# ==============================
+# Data Ingestion Configuration
+# ==============================
+
+data_ingestion:
+  # Directory for all data ingestion outputs
+  root_dir: artifacts/data_ingestion
+  
+  # Remote URL to download the dataset
+  source_URL: https://github.com/krishnaik06/datasets/raw/refs/heads/main/winequality-data.zip
+  
+  # Path to save the downloaded zip file
+  local_data_file: artifacts/data_ingestion/data.zip
+  
+  # Directory to extract the contents of the zip file
+  unzip_dir: artifacts/data_ingestion
+
+# ==============================
+# Data Validation Configuration
+# ==============================
+
+data_validation:
+  # Directory to store data validation outputs
+  root_dir: artifacts/data_validation
+
+  # Path to the raw CSV data after unzipping
+  unzip_data_dir: artifacts/data_ingestion/winequality-red.csv
+
+  # Path to a status file that tracks validation result
+  STATUS_FILE: artifacts/data_validation/status.txt
+
+# ==============================
+# Data Transformation Configuration
+# ==============================
+
+data_transformation:
+  # Directory to store transformed data
+  root_dir: artifacts/data_transformation
+
+  # Path to the raw input data
+  data_path: artifacts/data_ingestion/winequality-red.csv
+
+  # Path to status file (shared with validation status)
+  STATUS_FILE: artifacts/data_validation/status.txt
+
+# ==============================
+# Model Training Configuration
+# ==============================
+
+model_trainer:
+  # Directory to save trained model and training logs
+  root_dir: artifacts/model_trainer
+
+  # Path to training dataset
+  train_data_path: artifacts/data_transformation/train.csv
+
+  # Path to testing dataset
+  test_data_path: artifacts/data_transformation/test.csv
+
+  # Filename for the trained model
+  model_name: model.joblib
+
+# ==============================
+# Model Evaluation Configuration
+# ==============================
+
+model_evaluation:
+  # Directory for model evaluation outputs
+  root_dir: artifacts/model_evaluation
+
+  # Path to testing data used for evaluation
+  test_data_path: artifacts/data_transformation/test.csv
+
+  # Path to the trained model file
+  model_path: artifacts/model_trainer/model.joblib
+
+  # File to save evaluation metrics like accuracy, F1, etc.
+  test_metric_file_path: artifacts/model_evaluation/metrics.json
+
+# ==============================
+# Model Prediction Configuration
+# ==============================
+
+model_prediction:
+  # Directory to store prediction outputs
+  root_dir: artifacts/model_prediction
+
+  # Path to the trained model for inference
+  model_path: artifacts/model_trainer/model.joblib
+
+  # Output file path for storing predictions
+  predictions_file_path: artifacts/model_prediction/predictions.csv
+
+================================================================================
+# YAML FILE: params.yaml
+================================================================================
+
+ElasticNet:
+  alpha: 0.2
+  l1_ratio: 0.1
+
+================================================================================
+# YAML FILE: schema.yaml
+================================================================================
+
+COLUMNS:
+  fixed acidity: float64
+  volatile acidity: float64
+  citric acid: float64
+  residual sugar: float64
+  chlorides: float64
+  free sulfur dioxide: float64
+  total sulfur dioxide: float64
+  density: float64
+  pH: float64
+  sulphates: float64
+  alcohol: float64
+  quality: int64
+
+TARGET_COLUMN:
+  target_column: quality

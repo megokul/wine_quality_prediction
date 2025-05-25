@@ -1,0 +1,897 @@
+
+📦 Project Structure of: E:\MyProjects\pilotproject
+
+📄 .env
+📄 .gitignore
+📄 Dockerfile
+📄 LICENSE
+📄 README.md
+📄 app.py
+📁 artifacts/
+    📁 data_ingestion/
+        📄 data.zip
+        📄 winequality-red.csv
+    📁 data_transformation/
+        📄 test.csv
+        📄 train.csv
+    📁 data_validation/
+        📄 status.txt
+    📁 model_evaluation/
+        📄 metrics.json
+    📁 model_prediction/
+        📄 predictions.csv
+    📁 model_trainer/
+        📄 model.joblib
+📁 config/
+    📄 config.yaml
+📁 datasets/
+    📄 winequality-data.zip
+📁 logs/
+    📄 app_logs.log
+    📄 directorygen_logs.log
+📄 main.py
+📁 mlruns/
+    📁 .trash/
+    📁 0/
+        📁 77e0764d77204ebaa86744e1a41e45c8/
+            📁 artifacts/
+                📁 model/
+                    📄 MLmodel
+                    📄 conda.yaml
+                    📄 input_example.json
+                    📄 model.pkl
+                    📄 python_env.yaml
+                    📄 requirements.txt
+                    📄 serving_input_example.json
+        📁 99b9d6ed1b854f829f537fb9adc1f361/
+            📁 artifacts/
+                📁 model/
+                    📄 MLmodel
+                    📄 conda.yaml
+                    📄 input_example.json
+                    📄 model.pkl
+                    📄 python_env.yaml
+                    📄 requirements.txt
+                    📄 serving_input_example.json
+        📁 ed0b7f8679184abcaceb9f320580eac1/
+            📁 artifacts/
+📄 params.yaml
+📄 print_structure.py
+📄 project_dump.py
+📄 project_template.py
+📄 requirements.txt
+📁 research/
+    📄 data_ingestion.ipynb
+    📄 data_validation.ipynb
+    📄 model_evaluation.ipynb
+    📄 research.ipynb
+📄 schema.yaml
+📄 setup.py
+📁 src/
+    📁 pilotproject/
+        📄 __init__.py
+        📁 components/
+            📄 __init__.py
+            📄 data_ingestion.py
+            📄 data_transformation.py
+            📄 data_validation.py
+            📄 model_evaluation.py
+            📄 model_prediction.py
+            📄 model_trainer.py
+        📁 config/
+            📄 __init__.py
+            📄 configuration.py
+        📁 constants/
+            📄 __init__.py
+        📁 entity/
+            📄 __init__.py
+            📄 config_entity.py
+        📁 pipeline/
+            📄 __init__.py
+            📄 data_ingestion_pipeline.py
+            📄 data_transformation_pipeline.py
+            📄 data_validation_pipeline.py
+            📄 model_evaluation_pipeline.py
+            📄 model_trainer_pipeline.py
+            📄 prediction_pipeline.py
+        📁 utils/
+            📄 __init__.py
+            📄 common.py
+📁 templates/
+    📄 index.html
+    📄 results.html
+
+--- CODE DUMP | PART 1 of 3 ---
+
+
+================================================================================
+# PY FILE: app.py
+================================================================================
+
+from flask import Flask, render_template, request
+import os
+import numpy as np
+from src.pilotproject.pipeline.prediction_pipeline import PredictionPipeline
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def homepage():
+    """
+    Renders the homepage with the input form.
+    """
+    return render_template("index.html")
+
+
+@app.route('/train', methods=['GET'])
+def training():
+    """
+    Triggers the training pipeline by running the main script.
+    """
+    os.system('python main.py')
+    return 'Training Successful'
+
+
+@app.route('/predict', methods=['GET', 'POST'])
+def predict_route():
+    """
+    Handles prediction logic:
+    - Accepts user input via POST request.
+    - Prepares data for model input.
+    - Calls the prediction pipeline.
+    - Renders prediction results or error message.
+    """
+    if request.method == 'POST':
+        try:
+            # Extract user input from form
+            fixed_acidity = float(request.form['fixed_acidity'])
+            volatile_acidity = float(request.form['volatile_acidity'])
+            citric_acid = float(request.form['citric_acid'])
+            residual_sugar = float(request.form['residual_sugar'])
+            chlorides = float(request.form['chlorides'])
+            free_sulfur_dioxide = float(request.form['free_sulfur_dioxide'])
+            total_sulfur_dioxide = float(request.form['total_sulfur_dioxide'])
+            density = float(request.form['density'])
+            pH = float(request.form['pH'])
+            sulphates = float(request.form['sulphates'])
+            alcohol = float(request.form['alcohol'])
+
+            # Combine input into a single row
+            data = np.array([
+                fixed_acidity,
+                volatile_acidity,
+                citric_acid,
+                residual_sugar,
+                chlorides,
+                free_sulfur_dioxide,
+                total_sulfur_dioxide,
+                density,
+                pH,
+                sulphates,
+                alcohol
+            ]).reshape(1, -1)
+
+            # Run prediction pipeline
+            obj = PredictionPipeline()
+            pred = obj.initiate_prediction(data)
+
+            return render_template('results.html', prediction=str(pred))
+
+        except Exception as e:
+            print('The Exception message is:', e)
+            return 'Something went wrong during prediction.'
+        
+    else:
+        return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
+
+================================================================================
+# PY FILE: main.py
+================================================================================
+
+import os
+from dotenv import load_dotenv
+from src.pilotproject import logger
+
+from src.pilotproject.pipeline.data_ingestion_pipeline import DataIngestionPipeline
+from src.pilotproject.pipeline.data_validation_pipeline import DataValidationPipeline
+from src.pilotproject.pipeline.data_transformation_pipeline import DataTransformationPipeline
+from src.pilotproject.pipeline.model_trainer_pipeline import ModelTrainerPipeline
+from src.pilotproject.pipeline.model_evaluation_pipeline import ModelEvaluationPipeline
+
+# ===================================
+# 🔹 Pipeline Entry Point
+# ===================================
+
+"""
+Main script to run all ML pipeline stages sequentially:
+- Data Ingestion
+- Data Validation
+- Data Transformation
+- Model Training
+- Model Evaluation
+"""
+
+# Load environment variables (e.g., for MLflow URI)
+load_dotenv()
+
+# ==============================
+# 🔸 Data Ingestion Stage
+# ==============================
+STAGE_NAME = "Data Ingestion Stage"
+try:
+    logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+    obj = DataIngestionPipeline()
+    obj.initiate_data_ingestion()
+    logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+except Exception as e:
+    logger.exception(e)
+    raise
+
+# ==============================
+# 🔸 Data Validation Stage
+# ==============================
+STAGE_NAME = "Data Validation Stage"
+try:
+    logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+    obj = DataValidationPipeline()
+    obj.initiate_data_validation()
+    logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+except Exception as e:
+    logger.exception(e)
+    raise
+
+# ==============================
+# 🔸 Data Transformation Stage
+# ==============================
+STAGE_NAME = "Data Transformation Stage"
+try:
+    logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+    obj = DataTransformationPipeline()
+    obj.initiate_data_transformation()
+    logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+except Exception as e:
+    logger.exception(e)
+    raise
+
+# ==============================
+# 🔸 Model Trainer Stage
+# ==============================
+STAGE_NAME = "Model Trainer Stage"
+try:
+    logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+    obj = ModelTrainerPipeline()
+    obj.initiate_model_trainer()
+    logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+except Exception as e:
+    logger.exception(e)
+    raise
+
+# ==============================
+# 🔸 Model Evaluation Stage
+# ==============================
+STAGE_NAME = "Model Evaluation Stage"
+try:
+    logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<")
+    obj = ModelEvaluationPipeline()
+    obj.initiate_model_evaluation()
+    logger.info(f">>>>>> Stage: {STAGE_NAME} completed <<<<<<\n{'x' * 10}")
+except Exception as e:
+    logger.exception(e)
+    raise
+
+================================================================================
+# PY FILE: print_structure.py
+================================================================================
+
+import os
+
+
+def print_directory_tree(start_path: str, indent: str = "", exclude_dirs=None) -> None:
+    """
+    Recursively prints the directory structure starting from `start_path`,
+    excluding directories listed in `exclude_dirs`.
+
+    Args:
+        start_path (str): The root folder path to start from.
+        indent (str): Used for indentation in recursive calls.
+        exclude_dirs (set): Directory names to ignore.
+    """
+    if exclude_dirs is None:
+        exclude_dirs = {'.venv', 'venv', '__pycache__', '.github', '.git'}
+
+    try:
+        items = sorted(os.listdir(start_path))
+    except PermissionError:
+        return  # Skip directories/files we can't access
+
+    for item in items:
+        item_path = os.path.join(start_path, item)
+
+        if os.path.isdir(item_path):
+            if item in exclude_dirs:
+                continue
+            print(f"{indent}📁 {item}/")
+            print_directory_tree(item_path, indent + "    ", exclude_dirs)
+        else:
+            print(f"{indent}📄 {item}")
+
+
+if __name__ == "__main__":
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+    print(f"\n📦 Project Structure of: {ROOT_DIR}\n")
+    print_directory_tree(ROOT_DIR)
+
+================================================================================
+# PY FILE: project_dump.py
+================================================================================
+
+import os
+import math
+
+EXCLUDE_DIRS = {'.venv', 'venv', '__pycache__', '.github', '.git', '.idea', '.vscode', 'build', 'dist', '.mypy_cache'}
+INCLUDE_YAML_FILES = {'config.yaml', 'params.yaml', 'schema.yaml', 'templates.yaml'}
+BASE_OUTPUT_FILE = "project_code_dump_part"
+SUMMARY_FILE = "project_code_dump_index.txt"
+
+
+def is_valid_directory(dirname):
+    return not any(part in EXCLUDE_DIRS for part in dirname.split(os.sep))
+
+
+def print_directory_tree(start_path: str, indent: str = "", exclude_dirs=None, out_lines=None) -> list:
+    if exclude_dirs is None:
+        exclude_dirs = EXCLUDE_DIRS
+    if out_lines is None:
+        out_lines = []
+
+    try:
+        items = sorted(os.listdir(start_path))
+    except PermissionError:
+        return out_lines
+
+    for item in items:
+        item_path = os.path.join(start_path, item)
+        if os.path.isdir(item_path):
+            if item in exclude_dirs:
+                continue
+            out_lines.append(f"{indent}📁 {item}/")
+            print_directory_tree(item_path, indent + "    ", exclude_dirs, out_lines)
+        else:
+            out_lines.append(f"{indent}📄 {item}")
+    return out_lines
+
+
+def list_target_files(root_dir):
+    py_files = []
+    yaml_files = []
+
+    for dirpath, dirnames, filenames in os.walk(root_dir):
+        dirnames[:] = [d for d in dirnames if is_valid_directory(os.path.join(dirpath, d))]
+        for filename in filenames:
+            full_path = os.path.join(dirpath, filename)
+            rel_path = os.path.relpath(full_path, root_dir)
+
+            if filename.endswith('.py'):
+                py_files.append((rel_path, full_path))
+            elif filename in INCLUDE_YAML_FILES:
+                yaml_files.append((rel_path, full_path))
+
+    return sorted(py_files), sorted(yaml_files)
+
+
+def chunk_list(data, num_chunks):
+    chunk_size = math.ceil(len(data) / num_chunks)
+    return [data[i:i + chunk_size] for i in range(0, len(data), chunk_size)]
+
+
+def dump_project_code_in_parts(root_dir='.', num_parts=1):
+    py_files, yaml_files = list_target_files(root_dir)
+    tree_lines = print_directory_tree(root_dir, out_lines=[])
+    total_files = py_files + yaml_files
+
+    if not total_files:
+        print("❌ No .py or relevant .yaml files found.")
+        return
+
+    file_chunks = chunk_list(total_files, num_parts)
+
+    summary_lines = []
+    for i, chunk in enumerate(file_chunks, start=1):
+        part_filename = f"{BASE_OUTPUT_FILE}{i}.txt"
+        with open(part_filename, 'w', encoding='utf-8') as out_file:
+            out_file.write(f"\n📦 Project Structure of: {os.path.abspath(root_dir)}\n\n")
+            out_file.write("\n".join(tree_lines))
+            out_file.write(f"\n\n--- CODE DUMP | PART {i} of {num_parts} ---\n\n")
+
+            for rel_path, full_path in chunk:
+                summary_lines.append(f"{part_filename}: {rel_path}")
+                out_file.write(f"\n{'=' * 80}\n")
+                file_type = "PY FILE" if rel_path.endswith('.py') else "YAML FILE"
+                out_file.write(f"# {file_type}: {rel_path}\n")
+                out_file.write(f"{'=' * 80}\n\n")
+                try:
+                    with open(full_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        out_file.write(content.strip() + "\n")
+                except Exception as e:
+                    out_file.write(f"Error reading {rel_path}: {e}\n")
+
+        print(f"✅ Dumped part {i} to: {os.path.abspath(part_filename)}")
+
+    # Write summary file
+    with open(SUMMARY_FILE, 'w', encoding='utf-8') as f:
+        f.write("📄 File-to-Part Mapping\n\n")
+        for line in summary_lines:
+            f.write(line + "\n")
+
+    print(f"\n📝 Summary index saved to: {os.path.abspath(SUMMARY_FILE)}")
+
+
+if __name__ == "__main__":
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+    try:
+        num_parts = int(input("Enter number of parts to split the dump into: ").strip())
+        if num_parts < 1:
+            raise ValueError
+    except ValueError:
+        print("❌ Invalid input. Please enter a positive integer.")
+    else:
+        dump_project_code_in_parts(ROOT_DIR, num_parts)
+
+================================================================================
+# PY FILE: project_template.py
+================================================================================
+
+import os
+from pathlib import Path
+import logging
+
+# ==============================
+# 🔹 LOGGING SETUP
+# ==============================
+
+# ✅ Define the directory where logs will be stored
+log_dir = "logs"
+
+# ✅ Define the log file name and full path
+log_filepath = os.path.join(log_dir, 'directorygen_logs.log')
+
+# ✅ Define the format for log messages
+log_format = '[%(asctime)s] - %(levelname)s - %(module)s - %(message)s'
+
+def setup_logging():
+    """
+    Sets up a custom logger:
+    - Creates the `logs/` directory if it doesn't exist.
+    - Configures log messages to be written to both a file and the console.
+    - Uses append mode (`"a"`) so logs persist across multiple runs.
+    - Ensures handlers are not added multiple times.
+    - Logger name: `directory_builder` (used for all logging in this script).
+    
+    Returns:
+        logging.Logger: Custom logger instance.
+    """
+
+    # ✅ Ensure the log directory exists before creating the log file
+    os.makedirs(log_dir, exist_ok=True)
+
+    # ✅ Create a custom logger (separate from the root logger)
+    logger = logging.getLogger('directory_builder')
+
+    # ✅ Set the logger level to DEBUG (captures all log levels)
+    logger.setLevel(logging.DEBUG)
+
+    # ✅ Prevent adding duplicate handlers
+    if not logger.hasHandlers():
+        formatter = logging.Formatter(log_format)  # ✅ Define the log message format
+
+        # ✅ Create a File Handler (logs INFO and above)
+        file_handler = logging.FileHandler(log_filepath, mode='a')  # Append mode ("a")
+        file_handler.setFormatter(formatter)  # Apply the log format
+
+        # ✅ Create a Stream Handler (logs DEBUG and above to console)
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(formatter)  # Apply the log format
+
+        # ✅ Add handlers to the logger
+        logger.addHandler(file_handler)
+        logger.addHandler(stream_handler)
+
+    return logger  # ✅ Return the configured logger
+
+# ✅ Initialize the logger
+logger = setup_logging()
+
+
+
+# ==============================
+# 🔹 PROJECT SETUP
+# ==============================
+
+# ✅ Define the project name (used in file paths)
+project_name = input("Enter the project name: ")
+
+# ✅ List of files and directories to be created in the project structure
+list_of_files = [
+    # 🔹 GitHub workflows (for CI/CD setup)
+    ".github/workflows/.gitkeep",  
+    
+    # 🔹 Source Code Structure
+    f"src/{project_name}/__init__.py",  # Main package initializer
+    f"src/{project_name}/components/__init__.py",  # Components submodule initializer
+    f"src/{project_name}/utils/__init__.py",  # Utilities submodule initializer
+    f"src/{project_name}/utils/common.py",  # Common utility functions
+    f"src/{project_name}/config/__init__.py",  # Configuration submodule
+    f"src/{project_name}/config/configuration.py",  # Configuration handling script
+    f"src/{project_name}/pipeline/__init__.py",  # Pipeline processing module
+    f"src/{project_name}/entity/__init__.py",  # Entity-related module
+    f"src/{project_name}/entity/config_entity.py",  # Configuration entity class
+    f"src/{project_name}/constants/__init__.py",  # Constants module
+
+    # 🔹 Configuration and Parameter Files
+    "config/config.yaml",  # YAML file for configuration settings
+    "params.yaml",  # YAML file for parameter tuning
+    "schema.yaml",  # YAML file for data schema definition
+
+    # 🔹 Project Execution and Deployment
+    "main.py",  # Main entry point of the project
+    "Dockerfile",  # Dockerfile for containerization
+    "setup.py",  # Setup script for packaging
+    "requirements.txt",  # Requirements file for Python dependencies
+
+    # 🔹 Research and Web Components
+    "research/research.ipynb",  # Jupyter notebook for exploratory research
+    "templates/index.html",  # HTML template file (for a web component)
+
+    # 🔹 Backend API
+    "app.py"  # Flask or FastAPI backend application script
+]
+
+
+# ==============================
+# 🔹 DIRECTORY & FILE CREATION
+# ==============================
+
+def create_file_structure(file_list):
+    """
+    Creates directories and files based on the given list.
+    
+    - If a directory does not exist, it is created.
+    - If a file does not exist or is empty, it is created.
+    - Logs every operation to track what is being created.
+
+    Parameters:
+        file_list (list): List of file paths to be created.
+    """
+
+    for filepath in file_list:
+        filepath = Path(filepath)  # ✅ Convert string path to a `Path` object
+        filedir, filename = os.path.split(filepath)  # ✅ Extract directory and filename separately
+
+        # ✅ Ensure the parent directory exists before creating the file
+        if filedir:
+            os.makedirs(filedir, exist_ok=True)  # ✅ Create directory if it does not exist
+            logger.info(f"Creating the directory '{filedir}' for file: '{filename}'")
+
+        # ✅ Check if the file does not exist or is empty, then create it
+        if not filepath.exists() or filepath.stat().st_size == 0:
+            with open(filepath, 'w'):  # ✅ Create an empty file
+                pass  # No content is added, just initializing the file
+            logger.info(f"Creating empty file: '{filepath}'")  # ✅ Log file creation
+        else:
+            logger.info(f"'{filepath}' already exists")  # ✅ Log if the file already exists
+
+# ✅ Run the file creation function
+create_file_structure(list_of_files)
+
+================================================================================
+# PY FILE: setup.py
+================================================================================
+
+
+
+================================================================================
+# PY FILE: src\pilotproject\__init__.py
+================================================================================
+
+import os
+import logging
+import sys
+
+# Define the log message format including timestamp, log level, module name, and log message
+log_format = "[%(asctime)s] - %(levelname)s - %(module)s - %(message)s"
+
+# Directory where log files will be stored
+log_dir = 'logs'
+
+# Name of the log file
+log_filename = 'app_logs.log'
+
+# Complete path of the log file
+log_filepath = os.path.join(log_dir, log_filename)
+
+
+def create_logger():
+    """
+    Creates and configures a logger instance named 'app_logger'.
+    Ensures logs are written both to a file and to standard output.
+    Prevents duplicate handlers from being attached if called multiple times.
+    """
+
+    # Ensure that the logs directory exists; create it if it doesn't
+    os.makedirs(log_dir, exist_ok=True)
+
+    # Create or retrieve a logger instance
+    logger = logging.getLogger('app_logger')
+
+    # Set the minimum logging level to DEBUG, capturing all types of logs (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    logger.setLevel(level=logging.DEBUG)
+
+    # Check if the logger already has handlers attached; if not, proceed to add them
+    if not logger.hasHandlers():
+
+        # Create a formatter object using the specified log format
+        formatter = logging.Formatter(log_format)
+
+        # Create a file handler to write logs to a file, using append mode ('a')
+        file_handler = logging.FileHandler(log_filepath, mode='a')
+        file_handler.setFormatter(formatter)
+
+        # Create a stream handler to print logs to standard output (console)
+        stream_handler = logging.StreamHandler(sys.stdout)
+        stream_handler.setFormatter(formatter)
+
+        # Add both file and stream handlers to the logger
+        logger.addHandler(file_handler)
+        logger.addHandler(stream_handler)
+
+    # Return the configured logger instance
+    return logger
+
+
+# Instantiate and configure logger using create_logger function
+logger = create_logger()
+
+# Example usage (Uncomment to test logging functionality)
+# logger.debug("This is a debug message")
+# logger.info("This is an info message")
+# logger.warning("This is a warning message")
+# logger.error("This is an error message")
+# logger.critical("This is a critical message")
+
+================================================================================
+# PY FILE: src\pilotproject\components\__init__.py
+================================================================================
+
+
+
+================================================================================
+# PY FILE: src\pilotproject\components\data_ingestion.py
+================================================================================
+
+import os
+import urllib.request as request
+from src.pilotproject import logger
+from zipfile import ZipFile
+from src.pilotproject.entity.config_entity import DataIngestionConfig
+
+class DataIngestion:
+    """
+    Handles the data ingestion process:
+    - Downloads the dataset from a specified URL.
+    - Extracts the contents of the downloaded zip file.
+    """
+
+    def __init__(self, config: DataIngestionConfig):
+        """
+        Initializes the DataIngestion class with a configuration object.
+
+        Parameters:
+            config (DataIngestionConfig): Configuration containing paths and URLs
+        """
+        self.config = config
+
+    def download_file(self) -> None:
+        """
+        Downloads the dataset from the source URL to a local file path.
+
+        - Skips downloading if the file already exists.
+        - Logs download metadata upon success.
+
+        Returns:
+            None
+        """
+        if not os.path.exists(self.config.local_data_file):  # Download only if the file doesn't exist
+            filename, header = request.urlretrieve(
+                url=self.config.source_URL,
+                filename=self.config.local_data_file
+            )  # Download file from URL to specified local path
+
+            logger.info(f"File downloaded successfully: '{filename}'")
+            logger.debug(f"Download headers:\n{header}")
+        else:
+            logger.info(f"File already exists at: '{self.config.local_data_file}' — skipping download")
+
+    def extract_zip(self) -> None:
+        """
+        Extracts the downloaded zip file into the specified directory.
+
+        - Ensures the target directory exists.
+        - Unzips all contents of the downloaded file.
+        - Logs success or failure during extraction.
+
+        Returns:
+            None
+        """
+        unzip_dir = self.config.unzip_dir  # Target directory for extracted files
+        local_data_file = self.config.local_data_file  # Path to the downloaded zip file
+
+        os.makedirs(unzip_dir, exist_ok=True)  # Ensure the directory exists
+
+        try:
+            with ZipFile(local_data_file, 'r') as zip_ref:
+                zip_ref.extractall(unzip_dir)  # Extract all files
+                logger.info(f"Extracted '{local_data_file}' into '{unzip_dir}'")
+        except Exception as e:
+            logger.error(f"Failed to extract '{local_data_file}' to '{unzip_dir}': {e}")
+            raise  # Re-raise the exception for upstream handling
+
+================================================================================
+# PY FILE: src\pilotproject\components\data_transformation.py
+================================================================================
+
+from src.pilotproject.config.configuration import DataTransformationConfig
+import os
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from src.pilotproject import logger
+
+class DataTransformation:
+    """
+    Handles the transformation of raw data into train-test splits.
+
+    Responsibilities:
+    - Loads the preprocessed CSV dataset.
+    - Splits the dataset into training and testing sets.
+    - Saves the split files to disk.
+    - Validates the dataset before processing.
+    """
+
+    def __init__(self, config: DataTransformationConfig):
+        """
+        Initializes the DataTransformation class with the given config.
+
+        Parameters:
+            config (DataTransformationConfig): Contains paths and settings for data transformation.
+        """
+        self.config = config
+
+    def train_test_splitting(self, test_size: float = 0.25, random_state: int = 42) -> None:
+        """
+        Loads the dataset, splits it into training and testing sets, and saves both to disk.
+
+        - Uses specified test size and random state for reproducibility.
+        - Saves the resulting CSV files in the configured root directory.
+        - Logs output paths, shapes, and any issues encountered during the process.
+
+        Parameters:
+            test_size (float): Proportion of data to use as the test set.
+            random_state (int): Random seed for reproducibility.
+
+        Returns:
+            None
+        """
+        try:
+            data_path = self.config.data_path  # Path to the preprocessed CSV data
+            root_dir = self.config.root_dir    # Directory to save the train/test files
+
+            data = pd.read_csv(data_path)  # Load the dataset from CSV
+            logger.info(f"Loaded dataset from: '{data_path}'")
+
+            if data.empty:
+                logger.error("The dataset is empty. Cannot proceed with splitting.")
+                raise ValueError("Input data is empty.")
+
+            # Perform the train-test split with reproducibility
+            train, test = train_test_split(data, test_size=test_size, random_state=random_state)
+            logger.info(f"Split data into train and test sets with test_size={test_size}")
+
+            # Save training data
+            train_data_path = os.path.join(root_dir, 'train.csv')
+            train.to_csv(train_data_path, index=False)
+            logger.info(f"Training dataset saved at: '{train_data_path}'")
+            logger.info(f"Training data shape: {train.shape}")
+
+            # Save testing data
+            test_data_path = os.path.join(root_dir, 'test.csv')
+            test.to_csv(test_data_path, index=False)
+            logger.info(f"Testing dataset saved at: '{test_data_path}'")
+            logger.info(f"Testing data shape: {test.shape}")
+
+        except FileNotFoundError as fnf_error:
+            logger.error(f"Data file not found at: '{self.config.data_path}'. Details: {fnf_error}")
+            raise
+
+        except Exception as e:
+            logger.error(f"An error occurred during train-test splitting: {e}")
+            raise
+
+================================================================================
+# PY FILE: src\pilotproject\components\data_validation.py
+================================================================================
+
+from src.pilotproject.entity.config_entity import DataValidationConfig
+import pandas as pd
+from src.pilotproject import logger
+
+class DataValidation:
+    """
+    Handles validation of the raw dataset against the expected schema.
+
+    Responsibilities:
+    - Reads the unzipped CSV data.
+    - Compares column names with the expected schema.
+    - Logs and writes the validation result to a status file.
+    """
+
+    def __init__(self, config: DataValidationConfig):
+        """
+        Initializes the DataValidation class with the given config.
+
+        Parameters:
+            config (DataValidationConfig): Contains schema, paths, and status file location.
+        """
+        self.config = config
+
+    def validate_all_columns(self) -> bool:
+        """
+        Validates whether the columns in the raw CSV match the expected schema.
+
+        - Reads the dataset from the configured path.
+        - Compares actual column names with those specified in the schema.
+        - Writes the validation result to a status file.
+        - Logs progress and errors.
+
+        Returns:
+            bool: True if validation passes, False otherwise.
+        """
+        try:
+            validation_status = None  # Will hold the result (True/False)
+            unzip_data_dir = self.config.unzip_data_dir  # Path to the unzipped dataset
+            expected_column_names = set(self.config.all_schema.keys())  # Schema from config
+            STATUS_FILE = self.config.STATUS_FILE  # Path to store validation result
+
+            # Read the CSV data
+            data = pd.read_csv(unzip_data_dir)
+            data_column_names = set(data.columns)  # Actual column names from dataset
+
+            logger.info("Performing data validation")
+
+            # Compare expected vs actual columns
+            if expected_column_names == data_column_names:
+                validation_status = True
+                logger.info("Column validation passed")
+            else:
+                validation_status = False
+                logger.warning("Column validation failed")
+                logger.debug(f"Expected columns: {expected_column_names}")
+                logger.debug(f"Found columns: {data_column_names}")
+
+            # Write validation status to a file
+            with open(STATUS_FILE, 'w') as file:
+                logger.info(f"Writing validation status to file at '{STATUS_FILE}'")
+                file.write(f'Validation Status: {validation_status}')
+
+            return validation_status
+
+        except FileNotFoundError as fnf_error:
+            logger.error(f"Data file not found at: '{self.config.unzip_data_dir}'. Details: {fnf_error}")
+            raise
+
+        except Exception as e:
+            logger.error(f"An error occurred during data validation: {e}")
+            raise

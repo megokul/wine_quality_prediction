@@ -6,7 +6,7 @@ class DataIngestionConfig:
     """
     Configuration for data ingestion component.
     """
-    root_dir: Path
+    root_dir: Path  
     source_URL: str
     local_data_file: Path
     unzip_dir: Path

@@ -1,0 +1,33 @@
+📄 File-to-Part Mapping
+
+project_code_dump_part1.txt: app.py
+project_code_dump_part1.txt: main.py
+project_code_dump_part1.txt: print_structure.py
+project_code_dump_part1.txt: project_dump.py
+project_code_dump_part1.txt: project_template.py
+project_code_dump_part1.txt: setup.py
+project_code_dump_part1.txt: src\pilotproject\__init__.py
+project_code_dump_part1.txt: src\pilotproject\components\__init__.py
+project_code_dump_part1.txt: src\pilotproject\components\data_ingestion.py
+project_code_dump_part1.txt: src\pilotproject\components\data_transformation.py
+project_code_dump_part1.txt: src\pilotproject\components\data_validation.py
+project_code_dump_part2.txt: src\pilotproject\components\model_evaluation.py
+project_code_dump_part2.txt: src\pilotproject\components\model_prediction.py
+project_code_dump_part2.txt: src\pilotproject\components\model_trainer.py
+project_code_dump_part2.txt: src\pilotproject\config\__init__.py
+project_code_dump_part2.txt: src\pilotproject\config\configuration.py
+project_code_dump_part2.txt: src\pilotproject\constants\__init__.py
+project_code_dump_part2.txt: src\pilotproject\entity\__init__.py
+project_code_dump_part2.txt: src\pilotproject\entity\config_entity.py
+project_code_dump_part2.txt: src\pilotproject\pipeline\__init__.py
+project_code_dump_part2.txt: src\pilotproject\pipeline\data_ingestion_pipeline.py
+project_code_dump_part2.txt: src\pilotproject\pipeline\data_transformation_pipeline.py
+project_code_dump_part3.txt: src\pilotproject\pipeline\data_validation_pipeline.py
+project_code_dump_part3.txt: src\pilotproject\pipeline\model_evaluation_pipeline.py
+project_code_dump_part3.txt: src\pilotproject\pipeline\model_trainer_pipeline.py
+project_code_dump_part3.txt: src\pilotproject\pipeline\prediction_pipeline.py
+project_code_dump_part3.txt: src\pilotproject\utils\__init__.py
+project_code_dump_part3.txt: src\pilotproject\utils\common.py
+project_code_dump_part3.txt: config\config.yaml
+project_code_dump_part3.txt: params.yaml
+project_code_dump_part3.txt: schema.yaml
