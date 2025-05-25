@@ -156,6 +156,7 @@ http://localhost:8080
 ```
 
 Use the UI to enter wine chemical attributes and receive quality predictions.
+
 ---
 
 ### 📊 Step 6: Launch MLflow UI (Optional)
