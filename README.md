@@ -87,3 +87,95 @@ All configuration is handled through YAML and `.env` files for clean, flexible p
 
 ```dotenv
 MLFLOW_TRACKING_URI=<your-mlflow-uri>
+
+```
+---
+## 🧪 How to Run the Project
+
+Follow these steps to set up, train, and run the ML pipeline with both CLI and Web UI support.
+
+---
+
+### 🔧 Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+---
+
+### 🔐 Step 2: Set Up Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+```dotenv
+MLFLOW_TRACKING_URI=<your-mlflow-uri>
+MLFLOW_TRACKING_USERNAME=<your-username>
+MLFLOW_TRACKING_PASSWORD=<your-password>
+```
+
+---
+### 📦 Step 3: Install Dependencies
+
+Install all required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 🛠️ Step 4: Run the Training Pipeline
+
+This command runs the complete ML pipeline:
+
+- Data ingestion  
+- Data validation  
+- Data transformation  
+- Model training  
+- Model evaluation (logged to MLflow)
+
+```bash
+python main.py
+```
+
+---
+
+### 🌐 Step 5: Launch the Flask Web App
+
+Start the prediction server:
+
+```bash
+python app.py
+```
+
+Then open your browser and go to:
+
+```bash
+http://localhost:8080
+```
+
+Use the UI to enter wine chemical attributes and receive quality predictions.
+---
+
+### 📊 Step 6: Launch MLflow UI (Optional)
+
+To view tracked runs, metrics, and artifacts:
+
+```bash
+mlflow ui
+```
+
+Visit:
+
+```bash
+http://localhost:5000
+```
+
+You’ll be able to view:
+
+- RMSE, MAE, R² metrics  
+- Logged parameters (`alpha`, `l1_ratio`)  
+- Saved models and input examples
+
+
